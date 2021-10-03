@@ -2,7 +2,6 @@
 setup:
 	sudo gem install bundler
 	bundle install
-	pod install
 
 .PHONY: carthage_bootstrap
 carthage_bootstrap:
@@ -23,4 +22,4 @@ rm_derived_data:
 
 .PHONY: open_xcode
 open_xcode:
-	open Video_SwiftUI.xcworkspace
+	open Video_SwiftUI.xcodeproj
