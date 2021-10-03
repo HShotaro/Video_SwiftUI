@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		38B471B186BD3AF2E2D94145 /* Pods_Video_SwiftUI_Video_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3660C3C449A8B981A78226 /* Pods_Video_SwiftUI_Video_SwiftUIUITests.framework */; };
 		B8543EE18759F6BAA97B2A8F /* Pods_Video_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA0FDEE600F1D3FC6A978B5 /* Pods_Video_SwiftUITests.framework */; };
+		CB54522D2709C8B50093A468 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB54522C2709C8B50093A468 /* SDWebImage.xcframework */; };
+		CB54522E2709C8B50093A468 /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB54522C2709C8B50093A468 /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB7E26C12709AFAF00D344A6 /* Video_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7E26C02709AFAF00D344A6 /* Video_SwiftUIApp.swift */; };
 		CB7E26C32709AFAF00D344A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7E26C22709AFAF00D344A6 /* ContentView.swift */; };
 		CB7E26C52709AFB000D344A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB7E26C42709AFB000D344A6 /* Assets.xcassets */; };
@@ -36,6 +38,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CB54522F2709C8B50093A468 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB54522E2709C8B50093A468 /* SDWebImage.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A83E6260CD76908FE7A9C15 /* Pods-Video_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUI/Pods-Video_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		2295E0870487A8DA876EB8E2 /* Pods-Video_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUI/Pods-Video_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +59,7 @@
 		5EB300BB9EE63B25AA163422 /* Pods_Video_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Video_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA0FDEE600F1D3FC6A978B5 /* Pods_Video_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Video_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5BEA863EDFBE568FAE5649 /* Pods-Video_SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUITests/Pods-Video_SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CB54522C2709C8B50093A468 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Carthage/Build/SDWebImage.xcframework; sourceTree = "<group>"; };
 		CB7E26BD2709AFAF00D344A6 /* Video_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7E26C02709AFAF00D344A6 /* Video_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_SwiftUIApp.swift; sourceTree = "<group>"; };
 		CB7E26C22709AFAF00D344A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF64FE21E176F898D27762AB /* Pods_Video_SwiftUI.framework in Frameworks */,
+				CB54522D2709C8B50093A468 /* SDWebImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +114,6 @@
 				D8ABC4709856AD05071F0BC5 /* Pods-Video_SwiftUITests.debug.xcconfig */,
 				9A5BEA863EDFBE568FAE5649 /* Pods-Video_SwiftUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -161,6 +178,7 @@
 		D1CD225674DE488BF62012F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB54522C2709C8B50093A468 /* SDWebImage.xcframework */,
 				5EB300BB9EE63B25AA163422 /* Pods_Video_SwiftUI.framework */,
 				3B3660C3C449A8B981A78226 /* Pods_Video_SwiftUI_Video_SwiftUIUITests.framework */,
 				8FA0FDEE600F1D3FC6A978B5 /* Pods_Video_SwiftUITests.framework */,
@@ -179,6 +197,7 @@
 				CB7E26B92709AFAF00D344A6 /* Sources */,
 				CB7E26BA2709AFAF00D344A6 /* Frameworks */,
 				CB7E26BB2709AFAF00D344A6 /* Resources */,
+				CB54522F2709C8B50093A468 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -3,7 +3,6 @@ setup:
 	sudo gem install bundler
 	bundle install
 	pod install
-	carthage bootstrap --use-xcframeworks --no-use-binaries --platform ios
 
 .PHONY: carthage_bootstrap
 carthage_bootstrap:
