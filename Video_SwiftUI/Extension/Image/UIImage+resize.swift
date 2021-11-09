@@ -8,8 +8,11 @@
 import UIKit
 
 extension UIImage {
+    static let facetime: UIImage = UIImage(named: "facetime") ?? UIImage()
+    
+    
     static let videoFilming: UIImage = {
-        let v = UIColor.systemPink.colorImage(size: CGSize(width: 70, height: 40)).resizeImage(targetRect: CGRect(x: 0, y: 10, width: 70, height: 40)) ?? UIImage()
+        let v = UIImage.facetime.resizeImage(targetRect: CGRect(x: 0, y: 0, width: 60, height: 44)) ?? UIImage()
         return v
     }()
     

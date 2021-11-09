@@ -8,6 +8,9 @@
 import SwiftUI
 
 extension Color {
-    static let primaryColor: Color = Color.init(primaryUIColor)
-    static let primaryUIColor: UIColor = UIColor.systemPink
+    static let dominantColor: Color = Color(dominantUIColor)
+    static let dominantUIColor: UIColor = UIColor.systemPink
+    
+    static let accentColor: Color = Color(accentUIColor)
+    static let accentUIColor: UIColor = UIColor.systemRed
 }

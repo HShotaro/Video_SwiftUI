@@ -8,58 +8,58 @@
 import SwiftUI
 
 struct ContentView: View {
-    enum Tab {
-            case home
-            case timeline
-            case videoFilming
-            case messageList
-            case mypage
+    enum Tab: String, CaseIterable {
+            case home = "ホーム"
+            case timeline = "タイムライン"
+            case messageList = "メッセージ"
+            case mypage = "マイページ"
         }
     @State private var selection: Tab = .home
+    @State private var isVideoFilingPresented = false
     
     var body: some View {
-        TabView(selection: $selection) {
-            HomeView()
-                .tabItem {
-                    Label(
-                        title: { Text("ホーム") },
-                        icon: { Image(systemName: "house")
-                        }
-                    )
-                }.tag(Tab.home)
-            
-            TimelineView()
-                .tabItem {
-                    Label(
-                        title: { Text("タイムライン") },
-                        icon: { Image(systemName: "clock")
-                        }
-                    )
-                }.tag(Tab.timeline)
-            
-            VideoFilmingView()
-                .tabItem {
-                    Image(uiImage: UIImage.videoFilming).resizable()
-                }.tag(Tab.videoFilming)
-            
-            MessageListView()
-                .tabItem {
-                    Label(
-                        title: { Text("メッセージ") },
-                        icon: { Image(systemName: "text.bubble")
-                        }
-                    )
-                }.tag(Tab.messageList)
-            
-            MypageView()
-                .tabItem {
-                    Label(
-                        title: { Text("マイページ") },
-                        icon: { Image(systemName: "person")
-                        }
-                    )
-                }.tag(Tab.mypage)
-        }.accentColor(Color.primaryColor)
+        ZStack(alignment: .top) {
+            switch selection {
+            case .home:
+                NavigationView {
+                    HomeView()
+                        .padding(.bottom, BottomTabView.height)
+                        .navigationTitle(ContentView.Tab.home.rawValue)
+                }
+            case .timeline:
+                NavigationView {
+                    TimelineView()
+                        .padding(.bottom, BottomTabView.height)
+                        .navigationTitle(ContentView.Tab.timeline.rawValue)
+                }
+            case .messageList:
+                NavigationView {
+                    MessageListView()
+                        .padding(.bottom, BottomTabView.height)
+                        .navigationTitle(ContentView.Tab.messageList.rawValue)
+                }
+            case .mypage:
+                NavigationView {
+                    MypageView()
+                        .padding(.bottom, BottomTabView.height)
+                        .navigationTitle(ContentView.Tab.mypage.rawValue)
+                }
+            }
+            if isVideoFilingPresented {
+                EmptyView().sheet(isPresented: $isVideoFilingPresented) {
+                    NavigationView {
+                        VideoSelectionView(isPresented: $isVideoFilingPresented)
+                    }
+                }
+            } else {
+                VStack {
+                    Spacer()
+                    Divider()
+                    BottomTabView(selection: $selection, isVideoFilingPresented: $isVideoFilingPresented)
+                        .frame(height: BottomTabView.height)
+                }.ignoresSafeArea()
+            }
+        }
     }
 }
 
