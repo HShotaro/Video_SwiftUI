@@ -46,7 +46,7 @@ struct ContentView: View {
                 }
             }
             if isVideoFilingPresented {
-                EmptyView().sheet(isPresented: $isVideoFilingPresented) {
+                EmptyView().fullScreenCover(isPresented: $isVideoFilingPresented) {
                     NavigationView {
                         VideoSelectionView(isPresented: $isVideoFilingPresented)
                     }

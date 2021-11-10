@@ -59,6 +59,7 @@ struct VideoSelectionView: View {
             } label: {
                 Image(systemName: "photo")
                     .frame(width: 44, height: 44)
+                    .foregroundColor(Color.dominantColor)
             }.background(Color.white)
                 .cornerRadius(22)
                 .offset(x: getEditButtonOriginX(), y: viewModel.isEditing ? getEditButtonOriginY() - 118 : getEditButtonOriginY())
@@ -71,6 +72,7 @@ struct VideoSelectionView: View {
             } label: {
                 Image(systemName: "camera")
                     .frame(width: 44, height: 44)
+                    .foregroundColor(Color.dominantColor)
             }
             .background(Color.white)
                 .cornerRadius(22)
@@ -84,12 +86,20 @@ struct VideoSelectionView: View {
             } label: {
                 Image(systemName: viewModel.isEditing ? "xmark" :  "arrow.up.arrow.down")
                     .frame(width: 44, height: 44)
+                    .foregroundColor(Color.dominantColor)
             }
             .background(Color.white)
                 .cornerRadius(22)
                 .shadow(color: Color.black, radius: 22, x: 0, y: 0)
                 .offset(x: getEditButtonOriginX(), y: getEditButtonOriginY())
-        }.navigationBarHidden(true)
+        }.navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: Button(action: {
+                self.isPresented = false
+            }, label: {
+                Image(systemName: "xmark")
+                    .foregroundColor(Color.dominantColor)
+            })
+            )
     }
     
     func getEditButtonOriginX() -> CGFloat {
@@ -99,7 +109,7 @@ struct VideoSelectionView: View {
     
     func getEditButtonOriginY() -> CGFloat {
         let safeArea = UIApplication.getSafeArea()
-        return (UIScreen.main.bounds.height - safeArea.top - safeArea.bottom) / 2 - 42
+        return (UIScreen.main.bounds.height - 44 - safeArea.top - safeArea.bottom) / 2 - 42
     }
 }
 
