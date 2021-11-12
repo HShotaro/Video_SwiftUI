@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB0F4353273D0F8500C40377 /* VideoEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4352273D0F8500C40377 /* VideoEditingView.swift */; };
+		CB0F4427273E7FAB00C40377 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4426273E7FAB00C40377 /* CameraView.swift */; };
 		CB1A64932709D5820085B25E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64922709D5820085B25E /* HomeView.swift */; };
 		CB1A64972709D6170085B25E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64962709D6170085B25E /* HomeViewModel.swift */; };
 		CB1A649A2709D6390085B25E /* VideoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64992709D6390085B25E /* VideoSelectionView.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		CB0F4352273D0F8500C40377 /* VideoEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingView.swift; sourceTree = "<group>"; };
+		CB0F4426273E7FAB00C40377 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CB1A64922709D5820085B25E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CB1A64962709D6170085B25E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CB1A64992709D6390085B25E /* VideoSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionView.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				CB73EC26273BA45800632A4C /* CustomPHPickerViewController.swift */,
+				CB0F4426273E7FAB00C40377 /* CameraView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				CB1A64932709D5820085B25E /* HomeView.swift in Sources */,
 				CB88606B27397F8200F3E7BE /* VideoSelectionViewModel.swift in Sources */,
 				CB1A657B2709EB8E0085B25E /* UIColor+colorImage.swift in Sources */,
+				CB0F4427273E7FAB00C40377 /* CameraView.swift in Sources */,
 				CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */,
 				CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */,
 				CB0F4353273D0F8500C40377 /* VideoEditingView.swift in Sources */,
@@ -636,10 +640,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Video_SwiftUI/Mock Video_SwiftUI/Preview\\ Content";
-				DEVELOPMENT_TEAM = T8D5642T4Z;
+				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
@@ -657,8 +662,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "hshotaro.video.swiftui.Video-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = tv.mystaDebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = dev_mysta_debug;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

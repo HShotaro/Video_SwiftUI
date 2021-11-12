@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MypageView: View {
     var body: some View {
-        Text("Mypage")
+        NavigationView {
+            Text("Mypage")
+        }
     }
 }
 

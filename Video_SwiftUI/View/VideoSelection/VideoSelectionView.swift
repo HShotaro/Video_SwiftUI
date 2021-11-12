@@ -15,6 +15,7 @@ struct VideoSelectionView: View {
     case filming
     }
     @StateObject private var viewModel = VideoSelectionViewModel()
+    @State var cameraRecordingStatus: RecordingStatus = .ready
     @State var isPushActive = false
     @State var destinationView: AnyView? = nil
     @Binding var isPresented: Bool
@@ -29,8 +30,10 @@ struct VideoSelectionView: View {
                     LazyVGrid(columns: VideoSelectionView.columns, alignment: .center, spacing: 5) {
                         ForEach(viewModel.photoPickerModels, id: \.id) { photoPickerModel in
                             Button {
-                                viewModel.selectedVideo = photoPickerModel
-                                viewModel.showConfirmDialogOfSelectedPicture = true
+                                if let url = photoPickerModel.url {
+                                    self.destinationView = AnyView(VideoEditingView(url: url))
+                                    self.isPushActive = true
+                                }
                             } label: {
                                 switch photoPickerModel.mediaType {
                                 case .video:
@@ -46,24 +49,17 @@ struct VideoSelectionView: View {
                             }
                         }
                     }.padding(EdgeInsets(top: 5, leading: 5, bottom: 89, trailing: 5))
-                        .alert(isPresented: $viewModel.showConfirmDialogOfSelectedPicture) {
-                            Alert(title: Text("この動画をアップロードしますか？"),
-                                  message: nil,
-                                  primaryButton: Alert.Button.default(Text("はい"), action: {
-                                if let url = viewModel.selectedVideo?.url {
-                                    self.destinationView = AnyView(VideoEditingView(url: url))
-                                }
-                                self.isPushActive = true
-                            }), secondaryButton: Alert.Button.cancel()
-                            )
-                        }
                 }
             case .filming:
-                EmptyView()
+                CameraView(recordingStatus: $cameraRecordingStatus) { outputFileURL in
+                    self.destinationView = AnyView(VideoEditingView(url: outputFileURL))
+                    self.isPushActive = true
+                    cameraRecordingStatus = .ready
+                }
             
             }
             if viewModel.isEditing {
-                Color.black.opacity(0.3).frame(width: .infinity, height: .infinity)
+                Color.black.opacity(0.3).frame(minWidth: 300,maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
                     .onTapGesture {
                         withAnimation {
                             viewModel.isEditing = false

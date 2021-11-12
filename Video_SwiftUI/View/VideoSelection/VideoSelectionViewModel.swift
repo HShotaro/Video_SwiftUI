@@ -15,8 +15,6 @@ class VideoSelectionViewModel: ObservableObject {
     @Published var isEditing: Bool = false
     @Published var displayMode: VideoSelectionView.DisplayMode = .library
     @Published var isPHPhotoPickerViewPresented = false
-    @Published var showConfirmDialogOfSelectedPicture = false
-    @Published var selectedVideo: PhotoPickerModel? = nil
     
     
     func getPHPickerResults(results: [PHPickerResult]) {
