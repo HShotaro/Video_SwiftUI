@@ -46,7 +46,7 @@ struct ContentView: View {
                 }
             }
             if isVideoFilingPresented {
-                EmptyView().fullScreenCover(isPresented: $isVideoFilingPresented) {
+                Color.clear.fullScreenCover(isPresented: $isVideoFilingPresented) {
                     NavigationView {
                         VideoSelectionView(isPresented: $isVideoFilingPresented)
                     }

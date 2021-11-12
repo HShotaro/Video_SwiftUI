@@ -6,27 +6,43 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct VideoSelectionView: View {
-    static let columns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 5, alignment: .center), count: 3)
+    static let columns: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 5, alignment: .center), count: 1)
     enum DisplayMode {
     case library
     case filming
     }
     @StateObject private var viewModel = VideoSelectionViewModel()
+    @State var isPushActive = false
+    @State var destinationView: AnyView? = nil
     @Binding var isPresented: Bool
     var body: some View {
         ZStack {
+            NavigationLink(destination: destinationView, isActive: $isPushActive) {
+                EmptyView()
+            }
             switch viewModel.displayMode {
             case .library:
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: VideoSelectionView.columns, alignment: .center, spacing: 5) {
-                        ForEach(mocks, id: \.self.id) { mock in
+                        ForEach(viewModel.photoPickerModels, id: \.id) { photoPickerModel in
                             Button {
-                                viewModel.selectedItemID = mock.id
+                                viewModel.selectedVideo = photoPickerModel
                                 viewModel.showConfirmDialogOfSelectedPicture = true
                             } label: {
-                                Color.yellow.aspectRatio(1.0, contentMode: .fit)
+                                switch photoPickerModel.mediaType {
+                                case .video:
+                                    if let url = photoPickerModel.url {
+                                        VideoPlayer(player: AVPlayer(url: url))
+                                            .frame(minHeight: 220)
+                                    } else {
+                                        EmptyView()
+                                    }
+                                case .livePhoto, .photo:
+                                    EmptyView()
+                                }
                             }
                         }
                     }.padding(EdgeInsets(top: 5, leading: 5, bottom: 89, trailing: 5))
@@ -34,7 +50,10 @@ struct VideoSelectionView: View {
                             Alert(title: Text("この動画をアップロードしますか？"),
                                   message: nil,
                                   primaryButton: Alert.Button.default(Text("はい"), action: {
-                                // TODO 動画をアップロードする処理
+                                if let url = viewModel.selectedVideo?.url {
+                                    self.destinationView = AnyView(VideoEditingView(url: url))
+                                }
+                                self.isPushActive = true
                             }), secondaryButton: Alert.Button.cancel()
                             )
                         }
@@ -93,21 +112,49 @@ struct VideoSelectionView: View {
                 .shadow(color: Color.black, radius: 22, x: 0, y: 0)
                 .offset(x: getEditButtonOriginX(), y: getEditButtonOriginY())
         }.navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(
+                getNavigationTitle()
+            )
             .navigationBarItems(leading: Button(action: {
                 self.isPresented = false
             }, label: {
                 Image(systemName: "xmark")
                     .foregroundColor(Color.dominantColor)
+            }), trailing:
+                Button(action: {
+                    self.viewModel.isPHPhotoPickerViewPresented = true
+                }, label: {
+                    switch viewModel.displayMode {
+                    case .library:
+                        Image(systemName: "photo")
+                        .foregroundColor(Color.dominantColor)
+                    case .filming:
+                        EmptyView()
+                    }
             })
             )
+            .sheet(isPresented: $viewModel.isPHPhotoPickerViewPresented, content: {
+                CustomPHPickerViewController { results in
+                    viewModel.getPHPickerResults(results: results)
+                }
+            })
     }
     
-    func getEditButtonOriginX() -> CGFloat {
+    private func getNavigationTitle() -> Text {
+        switch viewModel.displayMode {
+        case .library:
+            return Text("ライブラリ")
+        case .filming:
+            return Text("撮影")
+        }
+    }
+    
+    private func getEditButtonOriginX() -> CGFloat {
         let safeArea = UIApplication.getSafeArea()
         return (UIScreen.main.bounds.width - safeArea.left - safeArea.right) / 2 - 42
     }
     
-    func getEditButtonOriginY() -> CGFloat {
+    private func getEditButtonOriginY() -> CGFloat {
         let safeArea = UIApplication.getSafeArea()
         return (UIScreen.main.bounds.height - 44 - safeArea.top - safeArea.bottom) / 2 - 42
     }
