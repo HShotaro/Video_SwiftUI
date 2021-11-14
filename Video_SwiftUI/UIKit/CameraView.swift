@@ -20,8 +20,9 @@ public protocol CameraViewDelegate: AnyObject {
 
 public class UICameraView: UIView {
     private var videoDevice: AVCaptureDevice?
-    private let fileOutput = AVCaptureMovieFileOutput()
-    private var videoLayer : AVCaptureVideoPreviewLayer!
+    private var fileOutput: AVCaptureMovieFileOutput?
+    private var captureSession: AVCaptureSession?
+    private var videoLayer: AVCaptureVideoPreviewLayer?
     public weak var delegate: CameraViewDelegate?
     var isShooting = false {
         didSet {
@@ -50,6 +51,18 @@ public class UICameraView: UIView {
         button.layer.masksToBounds = true
         return button
     }()
+    
+    private let reverseButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "arrow.up.arrow.down")
+        button.setImage(image, for: .normal)
+        button.tintColor = UIColor.white
+        button.layer.cornerRadius = 22
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.masksToBounds = true
+        return button
+    }()
         
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -57,40 +70,60 @@ public class UICameraView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let captureSession: AVCaptureSession = AVCaptureSession()
-        videoDevice = defaultCamera()
+        setUpCaptureSession(position: .back)
+        setUpVideoPreviewLayer()
+        addSubview(captureButton)
+        captureButton.addTarget(self, action: #selector(tapCaptureButton(_:)), for: .touchUpInside)
+        addSubview(reverseButton)
+        reverseButton.addTarget(self, action: #selector(tapReverseButton(_:)), for: .touchUpInside)
+    }
+    
+    private func setUpCaptureSession(position: AVCaptureDevice.Position) {
+        if captureSession?.isRunning == true {
+            captureSession?.stopRunning()
+        }
+        captureSession = AVCaptureSession()
+        videoDevice = defaultCamera(position: position)
         let audioDevice: AVCaptureDevice? = AVCaptureDevice.default(for: AVMediaType.audio)
 
         // video input setting
         let videoInput: AVCaptureDeviceInput = try! AVCaptureDeviceInput(device: videoDevice!)
-        captureSession.addInput(videoInput)
+        captureSession?.addInput(videoInput)
 
         // audio input setting
         let audioInput = try! AVCaptureDeviceInput(device: audioDevice!)
-        captureSession.addInput(audioInput)
+        captureSession?.addInput(audioInput)
 
         // max duration setting
-        fileOutput.maxRecordedDuration = CMTimeMake(value: 60, timescale: 1)
+        fileOutput = AVCaptureMovieFileOutput()
+        fileOutput?.maxRecordedDuration = CMTimeMake(value: 60, timescale: 1)
 
-        captureSession.addOutput(fileOutput)
+        captureSession?.addOutput(fileOutput!)
 
         // video quality setting
-        captureSession.beginConfiguration()
-        if captureSession.canSetSessionPreset(.hd4K3840x2160) {
-            captureSession.sessionPreset = .hd4K3840x2160
-        } else if captureSession.canSetSessionPreset(.high) {
-            captureSession.sessionPreset = .high
+        captureSession?.beginConfiguration()
+        if captureSession?.canSetSessionPreset(.hd4K3840x2160) == true {
+            captureSession?.sessionPreset = .hd4K3840x2160
+        } else if captureSession?.canSetSessionPreset(.high) == true {
+            captureSession?.sessionPreset = .high
         }
-        captureSession.commitConfiguration()
+        captureSession?.commitConfiguration()
 
-        captureSession.startRunning()
-
+        captureSession?.startRunning()
+    }
+    
+    private func setUpVideoPreviewLayer() {
         // video preview layer
+        guard let captureSession = captureSession else { return }
+        if let l = layer.sublayers?.filter({ layer in
+            layer == videoLayer
+        }).first {
+            l.removeFromSuperlayer()
+        }
+        
         videoLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoLayer.videoGravity = AVLayerVideoGravity.resizeAspect
-        layer.addSublayer(videoLayer)
-        addSubview(captureButton)
-        captureButton.addTarget(self, action: #selector(tapCaptureButton(_:)), for: .touchUpInside)
+        videoLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        layer.insertSublayer(videoLayer!, at: 0)
     }
     
     @objc private func tapCaptureButton(_ sender: UIButton) {
@@ -101,28 +134,38 @@ public class UICameraView: UIView {
         }
     }
     
+    @objc private func tapReverseButton(_ sender: UIButton) {
+        guard !isShooting else {
+            return
+        }
+        let currentPosition = (captureSession?.inputs.first as? AVCaptureDeviceInput)?.device.position ?? .back
+        setUpCaptureSession(position: currentPosition == .back ? .front : .back)
+        setUpVideoPreviewLayer()
+    }
+    
     public override func layoutSubviews() {
         captureButton.frame = CGRect(x: (self.frame.width - UICameraView.buttonWidth) / 2, y: self.frame.height - UICameraView.buttonWidth - 20, width: UICameraView.buttonWidth, height: UICameraView.buttonWidth)
-        videoLayer.frame = bounds
+        reverseButton.frame = CGRect(x: self.frame.width - 44 - 20, y: 20, width: 44, height: 44)
+        videoLayer?.frame = bounds
     }
     
     func startRecording() {
         let tempDirectory: URL = URL(fileURLWithPath: NSTemporaryDirectory())
         let fileURL: URL = tempDirectory.appendingPathComponent("mytemp1.mov")
-        fileOutput.startRecording(to: fileURL, recordingDelegate: self)
+        fileOutput?.startRecording(to: fileURL, recordingDelegate: self)
         isShooting = true
     }
     
     func stopRecording() {
         // stop recording
-        fileOutput.stopRecording()
+        fileOutput?.stopRecording()
         isShooting = false
     }
     
-    private func defaultCamera() -> AVCaptureDevice? {
-        if let device = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .front) {
+    private func defaultCamera(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        if let device = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: position) {
             return device
-        } else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front) {
+        } else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: position) {
             return device
         } else {
             return nil
