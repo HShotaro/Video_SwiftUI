@@ -54,7 +54,7 @@ public class UICameraView: UIView {
     
     private let reverseButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(systemName: "arrow.up.arrow.down")
+        let image = UIImage(systemName: "camera.rotate")
         button.setImage(image, for: .normal)
         button.tintColor = UIColor.white
         button.layer.cornerRadius = 22
@@ -122,7 +122,7 @@ public class UICameraView: UIView {
         }
         
         videoLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
         layer.insertSublayer(videoLayer!, at: 0)
     }
     

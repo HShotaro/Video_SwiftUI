@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct VideoEditingView: View {
     let url: URL
     var body: some View {
-        Text("\(url.absoluteString)")
+        VideoPlayer(player: AVPlayer(url: url))
+            .frame(minHeight: 220)
     }
 }
 
