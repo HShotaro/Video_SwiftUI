@@ -29,9 +29,9 @@ struct PhotoPickerModel: Identifiable {
         mediaType = .photo
     }
     
-    init(with videoURL: URL) {
+    init(with videoURL: URL, photo: UIImage? = nil) {
         id = UUID().uuidString
-        self.photo = nil
+        self.photo = photo
         url = videoURL
         self.livePhoto = nil
         mediaType = .video

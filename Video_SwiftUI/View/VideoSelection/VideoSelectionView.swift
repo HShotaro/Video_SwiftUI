@@ -37,9 +37,9 @@ struct VideoSelectionView: View {
                             } label: {
                                 switch photoPickerModel.mediaType {
                                 case .video:
-                                    if let url = photoPickerModel.url {
-                                        VideoPlayer(player: AVPlayer(url: url))
-                                            .frame(minHeight: 220)
+                                    if let photo = photoPickerModel.photo {
+                                        Image(uiImage: photo)
+                                            .frame(height: 220)
                                     } else {
                                         EmptyView()
                                     }
@@ -130,7 +130,7 @@ struct VideoSelectionView: View {
             })
             )
             .sheet(isPresented: $viewModel.isPHPhotoPickerViewPresented, content: {
-                CustomPHPickerViewController { results in
+                VSPHPickerViewController { results in
                     viewModel.getPHPickerResults(results: results)
                 }
             })

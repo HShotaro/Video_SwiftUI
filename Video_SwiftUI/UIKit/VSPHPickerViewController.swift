@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 public typealias PHPickerViewCompletionHandler = ( ([PHPickerResult]) -> Void)
-struct CustomPHPickerViewController: UIViewControllerRepresentable {
+struct VSPHPickerViewController: UIViewControllerRepresentable {
     let configuration: PHPickerConfiguration
     let completionHandler: PHPickerViewCompletionHandler?
     
@@ -26,20 +26,20 @@ struct CustomPHPickerViewController: UIViewControllerRepresentable {
         return Coordinator(self)
     }
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<CustomPHPickerViewController>) -> PHPickerViewController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<VSPHPickerViewController>) -> PHPickerViewController {
         let viewController = PHPickerViewController(configuration: configuration)
             viewController.delegate = context.coordinator
             return viewController
     }
     
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: UIViewControllerRepresentableContext<CustomPHPickerViewController>) {
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: UIViewControllerRepresentableContext<VSPHPickerViewController>) {
         
     }
     
     public class Coordinator : PHPickerViewControllerDelegate {
-        let parent: CustomPHPickerViewController
+        let parent: VSPHPickerViewController
         
-        init(_ parent: CustomPHPickerViewController) {
+        init(_ parent: VSPHPickerViewController) {
             self.parent = parent
         }
         public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
@@ -50,8 +50,8 @@ struct CustomPHPickerViewController: UIViewControllerRepresentable {
     }
 }
 
-struct CustomPHPickerViewController_Previews: PreviewProvider {
+struct VSPHPickerViewController_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPHPickerViewController()
+        VSPHPickerViewController()
     }
 }

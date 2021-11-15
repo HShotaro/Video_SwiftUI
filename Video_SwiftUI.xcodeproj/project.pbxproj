@@ -19,7 +19,7 @@
 		CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64AC2709E1280085B25E /* UIImage+resize.swift */; };
 		CB1A657B2709EB8E0085B25E /* UIColor+colorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */; };
 		CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F0546273AFBFD00CA1AD2 /* Mock.swift */; };
-		CB73EC27273BA45800632A4C /* CustomPHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73EC26273BA45800632A4C /* CustomPHPickerViewController.swift */; };
+		CB73EC27273BA45800632A4C /* VSPHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */; };
 		CB88606B27397F8200F3E7BE /* VideoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */; };
 		CB91E5F72709CB3600052541 /* Video_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */; };
 		CB91E5F92709CB3600052541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F82709CB3600052541 /* ContentView.swift */; };
@@ -32,6 +32,8 @@
 		CBBF89802732D6F000CFF9AD /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */; };
 		CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */; };
 		CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */; };
+		CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC570E2741E8750071ADA3 /* VSImageView.swift */; };
+		CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */; };
 		CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +67,7 @@
 		CB1A64AC2709E1280085B25E /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colorImage.swift"; sourceTree = "<group>"; };
 		CB3F0546273AFBFD00CA1AD2 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
-		CB73EC26273BA45800632A4C /* CustomPHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPHPickerViewController.swift; sourceTree = "<group>"; };
+		CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSPHPickerViewController.swift; sourceTree = "<group>"; };
 		CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionViewModel.swift; sourceTree = "<group>"; };
 		CB91E5F32709CB3600052541 /* Video_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
 		CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplilcation+safeArea.swift.swift"; sourceTree = "<group>"; };
 		CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
+		CBDC570E2741E8750071ADA3 /* VSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSImageView.swift; sourceTree = "<group>"; };
+		CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+load.swift"; sourceTree = "<group>"; };
 		CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				CB1A64AC2709E1280085B25E /* UIImage+resize.swift */,
+				CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -235,7 +240,7 @@
 		CB73EC25273BA10800632A4C /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CB73EC26273BA45800632A4C /* CustomPHPickerViewController.swift */,
+				CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */,
 				CB0F4426273E7FAB00C40377 /* CameraView.swift */,
 			);
 			path = UIKit;
@@ -244,6 +249,7 @@
 		CB73EC2A273BDE9D00632A4C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CBDC570D2741E8520071ADA3 /* Image */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -325,6 +331,14 @@
 				CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		CBDC570D2741E8520071ADA3 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				CBDC570E2741E8750071ADA3 /* VSImageView.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,7 +488,9 @@
 				CB1A64A12709D68D0085B25E /* MessageListView.swift in Sources */,
 				CB1A64A92709D7FD0085B25E /* Color+definition.swift in Sources */,
 				CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */,
+				CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */,
 				CB1A649D2709D6610085B25E /* TimelineView.swift in Sources */,
+				CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */,
 				CB1A649A2709D6390085B25E /* VideoSelectionView.swift in Sources */,
 				CB91E5F92709CB3600052541 /* ContentView.swift in Sources */,
 				CB91E5F72709CB3600052541 /* Video_SwiftUIApp.swift in Sources */,
@@ -482,7 +498,7 @@
 				CB1A64972709D6170085B25E /* HomeViewModel.swift in Sources */,
 				CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */,
 				CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */,
-				CB73EC27273BA45800632A4C /* CustomPHPickerViewController.swift in Sources */,
+				CB73EC27273BA45800632A4C /* VSPHPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
