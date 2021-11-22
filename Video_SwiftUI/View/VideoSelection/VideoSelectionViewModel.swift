@@ -7,7 +7,6 @@
 
 import Foundation
 import Photos
-import Combine
 import PhotosUI
 import QuickLookThumbnailing
 

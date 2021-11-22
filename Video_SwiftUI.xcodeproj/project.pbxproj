@@ -19,7 +19,12 @@
 		CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64AC2709E1280085B25E /* UIImage+resize.swift */; };
 		CB1A657B2709EB8E0085B25E /* UIColor+colorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */; };
 		CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F0546273AFBFD00CA1AD2 /* Mock.swift */; };
+		CB60E528274B57C40027ECF3 /* VideoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */; };
 		CB73EC27273BA45800632A4C /* VSPHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */; };
+		CB80DE7D2747EBC400B40803 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DE7C2747EBC400B40803 /* APIManager.swift */; };
+		CB80DE802747F03200B40803 /* Error+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DE7F2747F03200B40803 /* Error+handle.swift */; };
+		CB80DF5427481AB900B40803 /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DF5327481AB900B40803 /* WebSocketServer.swift */; };
+		CB80DF56274820E800B40803 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DF55274820E800B40803 /* WebSocketClient.swift */; };
 		CB88606B27397F8200F3E7BE /* VideoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */; };
 		CB91E5F72709CB3600052541 /* Video_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */; };
 		CB91E5F92709CB3600052541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F82709CB3600052541 /* ContentView.swift */; };
@@ -67,7 +72,12 @@
 		CB1A64AC2709E1280085B25E /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colorImage.swift"; sourceTree = "<group>"; };
 		CB3F0546273AFBFD00CA1AD2 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingViewController.swift; sourceTree = "<group>"; };
 		CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSPHPickerViewController.swift; sourceTree = "<group>"; };
+		CB80DE7C2747EBC400B40803 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		CB80DE7F2747F03200B40803 /* Error+handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+handle.swift"; sourceTree = "<group>"; };
+		CB80DF5327481AB900B40803 /* WebSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServer.swift; sourceTree = "<group>"; };
+		CB80DF55274820E800B40803 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionViewModel.swift; sourceTree = "<group>"; };
 		CB91E5F32709CB3600052541 /* Video_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 		CB0F4351273D0F6E00C40377 /* VideoEditing */ = {
 			isa = PBXGroup;
 			children = (
+				CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */,
 				CB0F4352273D0F8500C40377 /* VideoEditingView.swift */,
 			);
 			path = VideoEditing;
@@ -182,6 +193,9 @@
 		CB1A64A42709D7440085B25E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CB80DE7C2747EBC400B40803 /* APIManager.swift */,
+				CB80DF5327481AB900B40803 /* WebSocketServer.swift */,
+				CB80DF55274820E800B40803 /* WebSocketClient.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -189,6 +203,7 @@
 		CB1A64A52709D74D0085B25E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CB80DE7E2747F02100B40803 /* Error */,
 				CBBF89822732E0D300CFF9AD /* UIApplication */,
 				CB1A64AB2709E1180085B25E /* Image */,
 				CB1A64AA2709D8020085B25E /* Color */,
@@ -240,8 +255,8 @@
 		CB73EC25273BA10800632A4C /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */,
 				CB0F4426273E7FAB00C40377 /* CameraView.swift */,
+				CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -252,6 +267,14 @@
 				CBDC570D2741E8520071ADA3 /* Image */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		CB80DE7E2747F02100B40803 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CB80DE7F2747F03200B40803 /* Error+handle.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		CB91E5EA2709CB3600052541 = {
@@ -483,13 +506,17 @@
 				CB0F4427273E7FAB00C40377 /* CameraView.swift in Sources */,
 				CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */,
 				CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */,
+				CB80DE802747F03200B40803 /* Error+handle.swift in Sources */,
 				CB0F4353273D0F8500C40377 /* VideoEditingView.swift in Sources */,
 				CB1A64A32709D6990085B25E /* MypageView.swift in Sources */,
+				CB60E528274B57C40027ECF3 /* VideoEditingViewController.swift in Sources */,
 				CB1A64A12709D68D0085B25E /* MessageListView.swift in Sources */,
 				CB1A64A92709D7FD0085B25E /* Color+definition.swift in Sources */,
 				CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */,
 				CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */,
 				CB1A649D2709D6610085B25E /* TimelineView.swift in Sources */,
+				CB80DF56274820E800B40803 /* WebSocketClient.swift in Sources */,
+				CB80DF5427481AB900B40803 /* WebSocketServer.swift in Sources */,
 				CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */,
 				CB1A649A2709D6390085B25E /* VideoSelectionView.swift in Sources */,
 				CB91E5F92709CB3600052541 /* ContentView.swift in Sources */,
@@ -497,6 +524,7 @@
 				CBBF89802732D6F000CFF9AD /* BottomTabView.swift in Sources */,
 				CB1A64972709D6170085B25E /* HomeViewModel.swift in Sources */,
 				CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */,
+				CB80DE7D2747EBC400B40803 /* APIManager.swift in Sources */,
 				CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */,
 				CB73EC27273BA45800632A4C /* VSPHPickerViewController.swift in Sources */,
 			);

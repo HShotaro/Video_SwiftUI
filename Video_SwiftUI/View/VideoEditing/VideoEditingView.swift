@@ -8,11 +8,17 @@
 import SwiftUI
 import AVKit
 
-struct VideoEditingView: View {
+struct VideoEditingView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = VideoEditingViewController
     let url: URL
-    var body: some View {
-        VideoPlayer(player: AVPlayer(url: url))
-            .frame(minHeight: 220)
+    func makeUIViewController(context: Context) -> VideoEditingViewController {
+        let videoEditingVC = VideoEditingViewController(url: url)
+        
+        return videoEditingVC
+    }
+    
+    func updateUIViewController(_ uiViewController: VideoEditingViewController, context: Context) {
+        
     }
 }
 
