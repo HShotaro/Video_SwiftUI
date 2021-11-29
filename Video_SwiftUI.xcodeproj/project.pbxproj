@@ -96,6 +96,7 @@
 		CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
 		CBDC570E2741E8750071ADA3 /* VSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSImageView.swift; sourceTree = "<group>"; };
 		CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+load.swift"; sourceTree = "<group>"; };
+		CBE27EC82754EF8100BDEDD6 /* Video-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Video-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,6 +304,7 @@
 		CB91E5F52709CB3600052541 /* Video_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				CBE27EC82754EF8100BDEDD6 /* Video-SwiftUI-Info.plist */,
 				CB73EC25273BA10800632A4C /* UIKit */,
 				CB1A64A72709D78B0085B25E /* Model */,
 				CB1A64A62709D76C0085B25E /* Component */,
@@ -618,7 +620,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -673,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -695,6 +697,7 @@
 				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Video-SwiftUI-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "マイクを使用します";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真を保存します";
@@ -731,6 +734,7 @@
 				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Video-SwiftUI-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "マイクを使用します";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真を保存します";
