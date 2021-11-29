@@ -34,12 +34,12 @@
 		CB91E6082709CB3700052541 /* Video_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6072709CB3700052541 /* Video_SwiftUITests.swift */; };
 		CB91E6122709CB3700052541 /* Video_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6112709CB3700052541 /* Video_SwiftUIUITests.swift */; };
 		CB91E6142709CB3700052541 /* Video_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6132709CB3700052541 /* Video_SwiftUIUITestsLaunchTests.swift */; };
-		CB91E6252709D04000052541 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CB91E6242709D04000052541 /* SDWebImage */; };
 		CBBF89802732D6F000CFF9AD /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */; };
 		CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */; };
 		CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */; };
 		CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC570E2741E8750071ADA3 /* VSImageView.swift */; };
 		CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */; };
+		CBDFCEB027550BC800983284 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */; };
 		CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +96,8 @@
 		CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
 		CBDC570E2741E8750071ADA3 /* VSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSImageView.swift; sourceTree = "<group>"; };
 		CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+load.swift"; sourceTree = "<group>"; };
+		CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Carthage/Build/SDWebImage.xcframework; sourceTree = "<group>"; };
+		CBDFCEAE27550BA600983284 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7/SDWebImage.framework"; sourceTree = "<group>"; };
 		CBE27EC82754EF8100BDEDD6 /* Video-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Video-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB91E6252709D04000052541 /* SDWebImage in Frameworks */,
+				CBDFCEB027550BC800983284 /* SDWebImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +290,7 @@
 				CB91E6062709CB3700052541 /* Video_SwiftUITests */,
 				CB91E6102709CB3700052541 /* Video_SwiftUIUITests */,
 				CB91E5F42709CB3600052541 /* Products */,
+				CBDFCEA92755061E00983284 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,6 +372,15 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		CBDFCEA92755061E00983284 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBDFCEAE27550BA600983284 /* SDWebImage.framework */,
+				CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -379,6 +391,7 @@
 				CB91E5EF2709CB3600052541 /* Sources */,
 				CB91E5F02709CB3600052541 /* Frameworks */,
 				CB91E5F12709CB3600052541 /* Resources */,
+				CBDFCEB127550C1C00983284 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -386,7 +399,6 @@
 			);
 			name = Video_SwiftUI;
 			packageProductDependencies = (
-				CB91E6242709D04000052541 /* SDWebImage */,
 			);
 			productName = Video_SwiftUI;
 			productReference = CB91E5F32709CB3600052541 /* Video_SwiftUI.app */;
@@ -461,7 +473,6 @@
 			);
 			mainGroup = CB91E5EA2709CB3600052541;
 			packageReferences = (
-				CB91E6232709D04000052541 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = CB91E5F42709CB3600052541 /* Products */;
 			projectDirPath = "";
@@ -499,6 +510,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CBDFCEB127550C1C00983284 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7/SDWebImage.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB91E5EF2709CB3600052541 /* Sources */ = {
@@ -696,6 +729,10 @@
 				DEVELOPMENT_ASSET_PATHS = "Video_SwiftUI/Mock Video_SwiftUI/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Video-SwiftUI-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
@@ -733,6 +770,10 @@
 				DEVELOPMENT_ASSET_PATHS = "Video_SwiftUI/Mock Video_SwiftUI/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Video-SwiftUI-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
@@ -895,25 +936,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CB91E6232709D04000052541 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = exactVersion;
-				version = 5.12.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CB91E6242709D04000052541 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CB91E6232709D04000052541 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB91E5EB2709CB3600052541 /* Project object */;
 }
