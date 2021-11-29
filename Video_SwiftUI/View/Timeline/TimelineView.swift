@@ -11,7 +11,7 @@ struct TimelineView: View {
     var body: some View {
         NavigationView {
             Text("Timeline")
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

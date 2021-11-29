@@ -20,6 +20,7 @@
 		CB1A657B2709EB8E0085B25E /* UIColor+colorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */; };
 		CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F0546273AFBFD00CA1AD2 /* Mock.swift */; };
 		CB60E528274B57C40027ECF3 /* VideoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */; };
+		CB60E873274F53CE0027ECF3 /* TrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E872274F53CE0027ECF3 /* TrimingView.swift */; };
 		CB73EC27273BA45800632A4C /* VSPHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */; };
 		CB80DE7D2747EBC400B40803 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DE7C2747EBC400B40803 /* APIManager.swift */; };
 		CB80DE802747F03200B40803 /* Error+handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DE7F2747F03200B40803 /* Error+handle.swift */; };
@@ -73,6 +74,7 @@
 		CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colorImage.swift"; sourceTree = "<group>"; };
 		CB3F0546273AFBFD00CA1AD2 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingViewController.swift; sourceTree = "<group>"; };
+		CB60E872274F53CE0027ECF3 /* TrimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimingView.swift; sourceTree = "<group>"; };
 		CB73EC26273BA45800632A4C /* VSPHPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSPHPickerViewController.swift; sourceTree = "<group>"; };
 		CB80DE7C2747EBC400B40803 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		CB80DE7F2747F03200B40803 /* Error+handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+handle.swift"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		CB0F4351273D0F6E00C40377 /* VideoEditing */ = {
 			isa = PBXGroup;
 			children = (
+				CB60E872274F53CE0027ECF3 /* TrimingView.swift */,
 				CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */,
 				CB0F4352273D0F8500C40377 /* VideoEditingView.swift */,
 			);
@@ -523,6 +526,7 @@
 				CB91E5F72709CB3600052541 /* Video_SwiftUIApp.swift in Sources */,
 				CBBF89802732D6F000CFF9AD /* BottomTabView.swift in Sources */,
 				CB1A64972709D6170085B25E /* HomeViewModel.swift in Sources */,
+				CB60E873274F53CE0027ECF3 /* TrimingView.swift in Sources */,
 				CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */,
 				CB80DE7D2747EBC400B40803 /* APIManager.swift in Sources */,
 				CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */,
@@ -684,11 +688,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Video_SwiftUI/Mock Video_SwiftUI/Preview\\ Content";
-				DEVELOPMENT_TEAM = T8D5642T4Z;
+				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
@@ -706,9 +710,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "hshotaro.video.swiftui.Video-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = hshotaro.videoswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = video_swiftui_dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -720,10 +724,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Video_SwiftUI/Mock Video_SwiftUI/Preview\\ Content";
-				DEVELOPMENT_TEAM = T8D5642T4Z;
+				DEVELOPMENT_TEAM = 6RVFM6A7B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用します";
@@ -741,8 +746,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "hshotaro.video.swiftui.Video-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = hshotaro.videoswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = video_swiftui_prod;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

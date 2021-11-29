@@ -11,7 +11,7 @@ struct MessageListView: View {
     var body: some View {
         NavigationView {
             Text("Message List")
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

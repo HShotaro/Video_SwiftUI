@@ -19,6 +19,12 @@ class VideoEditingViewController: UIViewController {
         return button
     }()
     
+    private let trimingView: TrimingView = {
+        let v = TrimingView(frame: .zero)
+        
+        return v
+    }()
+    
     init(url: URL) {
         playerItem = AVPlayerItem(url: url)
         avplayer = AVPlayer(playerItem: playerItem)
@@ -26,11 +32,9 @@ class VideoEditingViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
         playerLayer.contentsScale = UIScreen.main.scale
-        
-        view.layer.insertSublayer(playerLayer, at: 0)
-        
         playOrStopButton.addTarget(self, action: #selector(playOrStop), for: .touchUpInside)
-        view.addSubview(playOrStopButton)
+        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.new], context: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(VideoEditingViewController.didFinishPlayingVideo(_:)),name: .AVPlayerItemDidPlayToEndTime,object: playerItem)
     }
     
     required init?(coder: NSCoder) {
@@ -44,8 +48,9 @@ class VideoEditingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.new], context: nil)
-        NotificationCenter.default.addObserver(self,selector: #selector(VideoEditingViewController.didFinishPlayingVideo(_:)),name: .AVPlayerItemDidPlayToEndTime,object: playerItem)
+        view.layer.insertSublayer(playerLayer, at: 0)
+        view.addSubview(playOrStopButton)
+        view.addSubview(trimingView)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -58,7 +63,6 @@ class VideoEditingViewController: UIViewController {
                 status = .unknown
             }
             
-            // Switch over status value
             switch status {
             case .readyToPlay:
                 play()
@@ -78,6 +82,7 @@ class VideoEditingViewController: UIViewController {
         super.viewWillLayoutSubviews()
         playerLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 80)
         playOrStopButton.frame = CGRect(x: (view.bounds.width - 44) / 2, y: (view.bounds.height - 44) / 2 - 40, width: 44, height: 44)
+        trimingView.frame = CGRect(x: 0, y: view.bounds.height - 80, width: view.bounds.width, height: 80)
     }
     
     @objc private func playOrStop(_ sender: UIButton) {
@@ -109,7 +114,6 @@ class VideoEditingViewController: UIViewController {
     
     private func play() {
         avplayer.play()
-        
         let imageConfig = UIImage.SymbolConfiguration(font: UIFont.boldSystemFont(ofSize: 25))
         let image = UIImage(systemName: "pause", withConfiguration: imageConfig)
         playOrStopButton.setImage(image, for: .normal)

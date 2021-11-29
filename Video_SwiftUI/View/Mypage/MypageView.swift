@@ -11,7 +11,7 @@ struct MypageView: View {
     var body: some View {
         NavigationView {
             Text("Mypage")
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
