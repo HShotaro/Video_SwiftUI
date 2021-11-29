@@ -27,6 +27,7 @@
 		CB80DF5427481AB900B40803 /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DF5327481AB900B40803 /* WebSocketServer.swift */; };
 		CB80DF56274820E800B40803 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DF55274820E800B40803 /* WebSocketClient.swift */; };
 		CB88606B27397F8200F3E7BE /* VideoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */; };
+		CB8B6A9127559EBE005CB97F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDFCEAE27550BA600983284 /* SDWebImage.framework */; };
 		CB91E5F72709CB3600052541 /* Video_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */; };
 		CB91E5F92709CB3600052541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F82709CB3600052541 /* ContentView.swift */; };
 		CB91E5FB2709CB3700052541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E5FA2709CB3700052541 /* Assets.xcassets */; };
@@ -39,7 +40,6 @@
 		CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */; };
 		CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC570E2741E8750071ADA3 /* VSImageView.swift */; };
 		CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */; };
-		CBDFCEB027550BC800983284 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */; };
 		CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +81,7 @@
 		CB80DF5327481AB900B40803 /* WebSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServer.swift; sourceTree = "<group>"; };
 		CB80DF55274820E800B40803 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionViewModel.swift; sourceTree = "<group>"; };
+		CB8B6A8E27559E62005CB97F /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Carthage/Build/SDWebImage.xcframework/ios-arm64_i386_x86_64-simulator/SDWebImage.framework"; sourceTree = "<group>"; };
 		CB91E5F32709CB3600052541 /* Video_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_SwiftUIApp.swift; sourceTree = "<group>"; };
 		CB91E5F82709CB3600052541 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBDFCEB027550BC800983284 /* SDWebImage.xcframework in Frameworks */,
+				CB8B6A9127559EBE005CB97F /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				CBDFCEAE27550BA600983284 /* SDWebImage.framework */,
+				CB8B6A8E27559E62005CB97F /* SDWebImage.framework */,
 				CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */,
 			);
 			name = Frameworks;
@@ -391,7 +393,6 @@
 				CB91E5EF2709CB3600052541 /* Sources */,
 				CB91E5F02709CB3600052541 /* Frameworks */,
 				CB91E5F12709CB3600052541 /* Resources */,
-				CBDFCEB127550C1C00983284 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -510,28 +511,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		CBDFCEB127550C1C00983284 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7/SDWebImage.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/SDWebImage.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nci_scripts/ci_post_clone.sh\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB91E5EF2709CB3600052541 /* Sources */ = {
@@ -732,6 +711,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7",
+					"$(PROJECT_DIR)/Carthage/Build/SDWebImage.xcframework/ios-arm64_i386_x86_64-simulator",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Video-SwiftUI-Info.plist";
@@ -773,6 +753,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7",
+					"$(PROJECT_DIR)/Carthage/Build/SDWebImage.xcframework/ios-arm64_i386_x86_64-simulator",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Video-SwiftUI-Info.plist";
