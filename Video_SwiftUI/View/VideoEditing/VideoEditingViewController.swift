@@ -19,22 +19,51 @@ class VideoEditingViewController: UIViewController {
         return button
     }()
     
-    private let trimingView: TrimingView = {
-        let v = TrimingView(frame: .zero)
-        
-        return v
-    }()
+    private let trimingView: TrimingView!
+    
+    
+    var startTime: Double = 0.0
+    var endTime: Double
+    private var timeObserverToken: Any? = nil
+    var isPlaying: Bool = false {
+        didSet {
+            guard isPlaying != oldValue else { return }
+            if isPlaying {
+                timeObserverToken = avplayer.addPeriodicTimeObserver(
+                    forInterval:CMTime(seconds: 0.5,
+                    preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
+                    queue: DispatchQueue.global()) { [weak self] time in
+                        guard self?.trimingView.isCurrentPointViewDragging == false else { return }
+                        guard time.seconds <= self?.endTime ?? 0.0 else {
+                            DispatchQueue.main.async { [weak self] in
+                                self?.didFinishPlayingVideo()
+                                self?.trimingView.updateCurrentPointView(seconds: self?.endTime ?? 0)
+                            }
+                            return
+                        }
+                        self?.trimingView.updateCurrentPointView(seconds: time.seconds)
+                }
+            } else {
+                timeObserverToken = nil
+            }
+        }
+    }
     
     init(url: URL) {
+        let avAsset = AVAsset(url: url)
+        let duration = CMTimeGetSeconds(avAsset.duration)
+        trimingView = TrimingView.init(frame: .zero, avAsset: avAsset, duration: duration)
         playerItem = AVPlayerItem(url: url)
+        endTime = Double(duration)
         avplayer = AVPlayer(playerItem: playerItem)
         playerLayer = AVPlayerLayer.init(player: avplayer)
         super.init(nibName: nil, bundle: nil)
+        trimingView.delegate = self
         playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
         playerLayer.contentsScale = UIScreen.main.scale
         playOrStopButton.addTarget(self, action: #selector(playOrStop), for: .touchUpInside)
         playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.new], context: nil)
-        NotificationCenter.default.addObserver(self,selector: #selector(VideoEditingViewController.didFinishPlayingVideo(_:)),name: .AVPlayerItemDidPlayToEndTime,object: playerItem)
+        NotificationCenter.default.addObserver(self,selector: #selector(VideoEditingViewController.didFinishPlayingVideo),name: .AVPlayerItemDidPlayToEndTime,object: playerItem)
     }
     
     required init?(coder: NSCoder) {
@@ -80,15 +109,15 @@ class VideoEditingViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        playerLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 80)
+        playerLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - TrimingView.height)
         playOrStopButton.frame = CGRect(x: (view.bounds.width - 44) / 2, y: (view.bounds.height - 44) / 2 - 40, width: 44, height: 44)
-        trimingView.frame = CGRect(x: 0, y: view.bounds.height - 80, width: view.bounds.width, height: 80)
+        trimingView.frame = CGRect(x: 0, y: view.bounds.height - TrimingView.height, width: view.bounds.width, height: TrimingView.height)
     }
     
     @objc private func playOrStop(_ sender: UIButton) {
-        guard playerLayer.player?.currentItem?.duration != playerLayer.player?.currentTime() else {
+        guard endTime > playerLayer.player?.currentTime().seconds ?? 0.0 else {
             // 最後まで見終わった時呼ばれる
-            playerLayer.player?.currentItem?.seek(to: CMTime.zero, completionHandler: { [weak self] completion in
+            playerLayer.player?.currentItem?.seek(to: CMTime(seconds: startTime, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), completionHandler: { [weak self] completion in
                 if completion {
                     self?.play()
                 }
@@ -106,10 +135,12 @@ class VideoEditingViewController: UIViewController {
         
     }
     
-    @objc private func didFinishPlayingVideo(_ notification: NSNotification) {
+    @objc private func didFinishPlayingVideo() {
+        avplayer.pause()
         let imageConfig = UIImage.SymbolConfiguration(font: UIFont.boldSystemFont(ofSize: 25))
         let image = UIImage(systemName: "gobackward", withConfiguration: imageConfig)
         playOrStopButton.setImage(image, for: .normal)
+        self.isPlaying = false
     }
     
     private func play() {
@@ -117,6 +148,7 @@ class VideoEditingViewController: UIViewController {
         let imageConfig = UIImage.SymbolConfiguration(font: UIFont.boldSystemFont(ofSize: 25))
         let image = UIImage(systemName: "pause", withConfiguration: imageConfig)
         playOrStopButton.setImage(image, for: .normal)
+        self.isPlaying = true
     }
     
     private func pause() {
@@ -124,5 +156,28 @@ class VideoEditingViewController: UIViewController {
         let imageConfig = UIImage.SymbolConfiguration(font: UIFont.boldSystemFont(ofSize: 25))
         let image = UIImage(systemName: "play", withConfiguration: imageConfig)
         playOrStopButton.setImage(image, for: .normal)
+        self.isPlaying = false
+    }
+}
+
+extension VideoEditingViewController: TrimingViewDelegate {
+    func startPointViewdidEndDragging(seconds: Double) {
+        self.startTime = seconds
+    }
+    
+    func currentPointViewDidUpdateFrame(seconds: Double) {
+        self.playerItem.seek(to: CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), completionHandler: nil)
+    }
+    
+    func endPointViewdidEndDragging(seconds: Double) {
+        self.endTime = seconds
+        if endTime <= (playerLayer.player?.currentTime().seconds ?? 0.0) {
+            playerLayer.player?.currentItem?.seek(to: CMTime(seconds: startTime, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), completionHandler: { [weak self] completion in
+                if completion {
+                    self?.play()
+                }
+            })
+            return
+        }
     }
 }

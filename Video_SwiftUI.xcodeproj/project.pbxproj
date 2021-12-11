@@ -27,8 +27,6 @@
 		CB80DF5427481AB900B40803 /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DF5327481AB900B40803 /* WebSocketServer.swift */; };
 		CB80DF56274820E800B40803 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB80DF55274820E800B40803 /* WebSocketClient.swift */; };
 		CB88606B27397F8200F3E7BE /* VideoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */; };
-		CB8B6A932755A2E2005CB97F /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */; };
-		CB8B6A942755A2E2005CB97F /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB91E5F72709CB3600052541 /* Video_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F62709CB3600052541 /* Video_SwiftUIApp.swift */; };
 		CB91E5F92709CB3600052541 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E5F82709CB3600052541 /* ContentView.swift */; };
 		CB91E5FB2709CB3700052541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB91E5FA2709CB3700052541 /* Assets.xcassets */; };
@@ -60,20 +58,6 @@
 			remoteInfo = Video_SwiftUI;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		CB8B6A952755A2E2005CB97F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CB8B6A942755A2E2005CB97F /* SDWebImage.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CB0F4352273D0F8500C40377 /* VideoEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingView.swift; sourceTree = "<group>"; };
@@ -123,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB8B6A932755A2E2005CB97F /* SDWebImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +391,6 @@
 				CB91E5EF2709CB3600052541 /* Sources */,
 				CB91E5F02709CB3600052541 /* Frameworks */,
 				CB91E5F12709CB3600052541 /* Resources */,
-				CB8B6A952755A2E2005CB97F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
