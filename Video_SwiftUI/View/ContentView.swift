@@ -15,7 +15,7 @@ struct ContentView: View {
             case mypage = "マイページ"
         }
     @State private var selection: Tab = .home
-    @State private var isVideoFilingPresented = false
+    @State private var isVideoSelectionPresented = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -37,17 +37,17 @@ struct ContentView: View {
                     .padding(.bottom, BottomTabView.height)
                     .navigationTitle(ContentView.Tab.mypage.rawValue)
             }
-            if isVideoFilingPresented {
-                Color.clear.fullScreenCover(isPresented: $isVideoFilingPresented) {
+            if isVideoSelectionPresented {
+                Color.clear.fullScreenCover(isPresented: $isVideoSelectionPresented) {
                     NavigationView {
-                        VideoSelectionView(isPresented: $isVideoFilingPresented)
+                        VideoSelectionView(isPresented: $isVideoSelectionPresented)
                     }
                 }
             } else {
                 VStack {
                     Spacer()
                     Divider()
-                    BottomTabView(selection: $selection, isVideoFilingPresented: $isVideoFilingPresented)
+                    BottomTabView(selection: $selection, isVideoFilingPresented: $isVideoSelectionPresented)
                         .frame(height: BottomTabView.height)
                 }.ignoresSafeArea()
             }

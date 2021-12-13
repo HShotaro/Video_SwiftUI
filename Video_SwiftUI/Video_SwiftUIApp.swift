@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Video_SwiftUIApp: App {
+    @EnvironmentObject var videoSelectionEnvironmentObject: VideoSelectionEnvironmentObject
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(VideoSelectionEnvironmentObject.shared)
         }
     }
 }

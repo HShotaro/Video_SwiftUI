@@ -29,7 +29,7 @@ class TrimingView: UIView {
     private let currentPointView: UIView = {
         let v = UIView()
         v.backgroundColor = .white
-        v.layer.borderWidth = 2
+        v.layer.borderWidth = 5.5
         v.layer.borderColor = UIColor.black.cgColor
         v.layer.masksToBounds = true
         return v
@@ -68,7 +68,7 @@ class TrimingView: UIView {
     
     private lazy var startPointInitialCenterX: CGFloat = horizontalMargin + sidePointViewWidth / 2
     private lazy var endPointInitialCenterX: CGFloat = self.frame.width - horizontalMargin - sidePointViewWidth / 2
-    private lazy var currentPointInitialCenterX: CGFloat = horizontalMargin + sidePointViewWidth + currentPointViewWidth / 2
+    private lazy var currentPointInitialCenterX: CGFloat = horizontalMargin + sidePointViewWidth / 2
     
     private let assetDuration: Float64
     
@@ -110,16 +110,13 @@ class TrimingView: UIView {
                 sender.view?.center.x = startPointInitialCenterX
             default:
                 let newCenterX = startPointInitialCenterX + transitionX
-                let x = min(currentPointView.frame.origin.x - sidePointViewWidth / 2, max(horizontalMargin + sidePointViewWidth / 2, newCenterX))
+                let x = min(endPointInitialCenterX - sidePointViewWidth, max(horizontalMargin + sidePointViewWidth / 2, newCenterX))
                 startPointView.center.x = x
                 if sender.state == .ended {
                     leftMaskView.frame = CGRect(x: 0, y: 0, width: x, height: self.frame.height)
                     self.startPointInitialCenterX = x
-                    let startPointRatio: CGFloat = (startPointInitialCenterX - horizontalMargin - sidePointViewWidth / 2) / (self.frame.width - (horizontalMargin + sidePointViewWidth) * 2)
+                    let startPointRatio: CGFloat = (startPointInitialCenterX - horizontalMargin - sidePointViewWidth / 2) / (self.frame.width - horizontalMargin * 2 - sidePointViewWidth)
                     self.delegate?.startPointViewdidEndDragging(seconds: startPointRatio * Double(assetDuration))
-                    
-                    self.currentPointInitialCenterX = x + (sidePointViewWidth + currentPointViewWidth) / 2
-                    self.delegate?.currentPointViewDidUpdateFrame(seconds: startPointRatio * Double(assetDuration))
                 }
             }
         case rightPanGesture:
@@ -130,12 +127,12 @@ class TrimingView: UIView {
                 sender.view?.center.x = endPointInitialCenterX
             default:
                 let newCenterX = endPointInitialCenterX + transitionX
-                let x = max(currentPointView.frame.origin.x + sidePointViewWidth / 2 + currentPointViewWidth, min(self.frame.width - horizontalMargin - sidePointViewWidth / 2, newCenterX))
+                let x = max(startPointInitialCenterX + sidePointViewWidth, min(self.frame.width - horizontalMargin - sidePointViewWidth / 2, newCenterX))
                 endPointView.center.x = x
                 if sender.state == .ended {
                     rightMaskView.frame = CGRect(x: x, y: 0, width: self.frame.width - x, height: self.frame.height)
                     self.endPointInitialCenterX = x
-                    let endPointRatio: CGFloat = (endPointInitialCenterX - horizontalMargin - sidePointViewWidth / 2 * 3) / (self.frame.width - (horizontalMargin + sidePointViewWidth) * 2)
+                    let endPointRatio: CGFloat = (endPointInitialCenterX - horizontalMargin - sidePointViewWidth / 2) / (self.frame.width - horizontalMargin * 2 - sidePointViewWidth)
                     self.delegate?.endPointViewdidEndDragging(seconds: endPointRatio * Double(assetDuration))
                 }
             }
@@ -149,14 +146,14 @@ class TrimingView: UIView {
                 self.isCurrentPointViewDragging = false
             default:
                 let newCenterX = currentPointInitialCenterX + transitionX
-                let x = max(startPointInitialCenterX + (sidePointViewWidth + currentPointViewWidth) / 2, min(endPointInitialCenterX - (sidePointViewWidth + currentPointViewWidth) / 2, newCenterX))
+                let x = max(startPointInitialCenterX, min(endPointInitialCenterX, newCenterX))
                 currentPointView.center.x = x
                 if sender.state == .ended {
                     self.currentPointInitialCenterX = x
                     self.isCurrentPointViewDragging = false
                 }
                 
-                let currentRatio: CGFloat = (x - horizontalMargin - sidePointViewWidth) / (self.frame.width - (horizontalMargin + sidePointViewWidth) * 2)
+                let currentRatio: CGFloat = (x - horizontalMargin - sidePointViewWidth / 2) / (self.frame.width - horizontalMargin * 2 - sidePointViewWidth)
                 self.delegate?.currentPointViewDidUpdateFrame(seconds: currentRatio * Double(assetDuration))
             }
         default:
@@ -233,9 +230,10 @@ class TrimingView: UIView {
     func updateCurrentPointView(seconds: Double) {
         let currentRatio = CGFloat(seconds / Double(assetDuration))
         DispatchQueue.main.async { [weak self] in
-            let x = (self?.horizontalMargin ?? 0) + (self?.sidePointViewWidth ?? 0) + (self?.currentPointViewWidth ?? 0) / 2 + currentRatio * ((self?.frame.width ?? 0) - (self?.currentPointViewWidth ?? 0) - ((self?.horizontalMargin ?? 0) + (self?.sidePointViewWidth ?? 0)) * 2)
-            self?.currentPointInitialCenterX = x
-            self?.currentPointView.center.x = x
+            guard let `self` = self else { return }
+            let x = self.horizontalMargin + self.sidePointViewWidth / 2 + currentRatio * (self.frame.width - self.horizontalMargin * 2 - self.sidePointViewWidth)
+            self.currentPointInitialCenterX = x
+            self.currentPointView.center.x = x
         }
         
     }

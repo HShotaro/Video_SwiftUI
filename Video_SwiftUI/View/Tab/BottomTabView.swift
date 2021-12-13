@@ -11,6 +11,7 @@ struct BottomTabView: View {
     static let height: CGFloat = 60
     @Binding var selection: ContentView.Tab
     @Binding var isVideoFilingPresented: Bool
+    @EnvironmentObject var videoSelectionEnvironmentObject: VideoSelectionEnvironmentObject
     var body: some View {
         HStack(spacing: 0) {
             Button {
@@ -35,6 +36,7 @@ struct BottomTabView: View {
             
             Button {
                 isVideoFilingPresented = true
+                videoSelectionEnvironmentObject.isPresented = $isVideoFilingPresented
             } label: {
                 VStack {
                     Image(uiImage: UIImage.videoFilming)

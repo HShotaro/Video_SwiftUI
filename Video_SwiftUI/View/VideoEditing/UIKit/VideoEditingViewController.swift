@@ -8,6 +8,11 @@
 import UIKit
 import AVKit
 
+protocol VideoEditingViewControllerDelegate: AnyObject {
+    func currentAVAssetStartPointDidChange(seconds: Double)
+    func currentAVAssetEndPointDidChange(seconds: Double)
+}
+
 class VideoEditingViewController: UIViewController {
     private let playerItem:AVPlayerItem
     private let avplayer:AVPlayer
@@ -31,7 +36,7 @@ class VideoEditingViewController: UIViewController {
             if isPlaying {
                 timeObserverToken = avplayer.addPeriodicTimeObserver(
                     forInterval:CMTime(seconds: 0.5,
-                    preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
+                    preferredTimescale: naturalVideoScale),
                     queue: DispatchQueue.global()) { [weak self] time in
                         guard self?.trimingView.isCurrentPointViewDragging == false else { return }
                         guard time.seconds <= self?.endTime ?? 0.0 else {
@@ -39,6 +44,10 @@ class VideoEditingViewController: UIViewController {
                                 self?.didFinishPlayingVideo()
                                 self?.trimingView.updateCurrentPointView(seconds: self?.endTime ?? 0)
                             }
+                            return
+                        }
+                        guard time.seconds - (self?.startTime ?? 0.0) > 0.5 else {
+                            self?.trimingView.updateCurrentPointView(seconds: self?.startTime ?? 0.0)
                             return
                         }
                         self?.trimingView.updateCurrentPointView(seconds: time.seconds)
@@ -49,9 +58,14 @@ class VideoEditingViewController: UIViewController {
         }
     }
     
+    let naturalVideoScale: CMTimeScale
+    
+    weak var delegate: VideoEditingViewControllerDelegate?
+    
     init(url: URL) {
         let avAsset = AVAsset(url: url)
         let duration = CMTimeGetSeconds(avAsset.duration)
+        self.naturalVideoScale = avAsset.tracks(withMediaType: .video).first?.naturalTimeScale ?? CMTimeScale(NSEC_PER_SEC)
         trimingView = TrimingView.init(frame: .zero, avAsset: avAsset, duration: duration)
         playerItem = AVPlayerItem(url: url)
         endTime = Double(duration)
@@ -111,13 +125,13 @@ class VideoEditingViewController: UIViewController {
         super.viewWillLayoutSubviews()
         playerLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - TrimingView.height)
         playOrStopButton.frame = CGRect(x: (view.bounds.width - 44) / 2, y: (view.bounds.height - 44) / 2 - 40, width: 44, height: 44)
-        trimingView.frame = CGRect(x: 0, y: view.bounds.height - TrimingView.height, width: view.bounds.width, height: TrimingView.height)
+        trimingView.frame = CGRect(x: view.safeAreaInsets.left, y: view.bounds.height - TrimingView.height, width: view.frame.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: TrimingView.height)
     }
     
     @objc private func playOrStop(_ sender: UIButton) {
         guard endTime > playerLayer.player?.currentTime().seconds ?? 0.0 else {
             // 最後まで見終わった時呼ばれる
-            playerLayer.player?.currentItem?.seek(to: CMTime(seconds: startTime, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), completionHandler: { [weak self] completion in
+            playerLayer.player?.currentItem?.seek(to: CMTime(seconds: startTime, preferredTimescale: naturalVideoScale), completionHandler: { [weak self] completion in
                 if completion {
                     self?.play()
                 }
@@ -151,7 +165,7 @@ class VideoEditingViewController: UIViewController {
         self.isPlaying = true
     }
     
-    private func pause() {
+    func pause() {
         avplayer.pause()
         let imageConfig = UIImage.SymbolConfiguration(font: UIFont.boldSystemFont(ofSize: 25))
         let image = UIImage(systemName: "play", withConfiguration: imageConfig)
@@ -163,16 +177,19 @@ class VideoEditingViewController: UIViewController {
 extension VideoEditingViewController: TrimingViewDelegate {
     func startPointViewdidEndDragging(seconds: Double) {
         self.startTime = seconds
+        self.playerItem.seek(to: CMTime(seconds: seconds, preferredTimescale: naturalVideoScale), completionHandler: nil)
+        self.delegate?.currentAVAssetStartPointDidChange(seconds: seconds)
     }
     
     func currentPointViewDidUpdateFrame(seconds: Double) {
-        self.playerItem.seek(to: CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), completionHandler: nil)
+        self.playerItem.seek(to: CMTime(seconds: seconds, preferredTimescale: naturalVideoScale), completionHandler: nil)
     }
     
     func endPointViewdidEndDragging(seconds: Double) {
         self.endTime = seconds
+        self.delegate?.currentAVAssetEndPointDidChange(seconds: seconds)
         if endTime <= (playerLayer.player?.currentTime().seconds ?? 0.0) {
-            playerLayer.player?.currentItem?.seek(to: CMTime(seconds: startTime, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), completionHandler: { [weak self] completion in
+            playerLayer.player?.currentItem?.seek(to: CMTime(seconds: startTime, preferredTimescale: naturalVideoScale), completionHandler: { [weak self] completion in
                 if completion {
                     self?.play()
                 }

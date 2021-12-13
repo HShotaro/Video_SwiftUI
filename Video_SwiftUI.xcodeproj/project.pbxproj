@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB0F4353273D0F8500C40377 /* VideoEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4352273D0F8500C40377 /* VideoEditingView.swift */; };
+		CB0F4353273D0F8500C40377 /* VideoEditingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4352273D0F8500C40377 /* VideoEditingViewRepresentable.swift */; };
 		CB0F4427273E7FAB00C40377 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4426273E7FAB00C40377 /* CameraView.swift */; };
 		CB1A64932709D5820085B25E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64922709D5820085B25E /* HomeView.swift */; };
 		CB1A64972709D6170085B25E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64962709D6170085B25E /* HomeViewModel.swift */; };
@@ -18,6 +18,7 @@
 		CB1A64A92709D7FD0085B25E /* Color+definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64A82709D7FD0085B25E /* Color+definition.swift */; };
 		CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64AC2709E1280085B25E /* UIImage+resize.swift */; };
 		CB1A657B2709EB8E0085B25E /* UIColor+colorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */; };
+		CB2EF2E82764BBB9001070A4 /* VideoEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EF2E72764BBB9001070A4 /* VideoEditingView.swift */; };
 		CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F0546273AFBFD00CA1AD2 /* Mock.swift */; };
 		CB60E528274B57C40027ECF3 /* VideoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */; };
 		CB60E873274F53CE0027ECF3 /* TrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E872274F53CE0027ECF3 /* TrimingView.swift */; };
@@ -40,6 +41,11 @@
 		CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC570E2741E8750071ADA3 /* VSImageView.swift */; };
 		CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */; };
 		CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */; };
+		CBEE8EF32766CCA300D0E284 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE8EF22766CCA300D0E284 /* VideoPlayerView.swift */; };
+		CBEE8FC82766EAA700D0E284 /* url+export.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE8FC72766EAA700D0E284 /* url+export.swift */; };
+		CBEE909D27672AB500D0E284 /* VideoUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE909C27672AB500D0E284 /* VideoUploadView.swift */; };
+		CBEE909F27672B7900D0E284 /* VideoUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE909E27672B7900D0E284 /* VideoUploadViewModel.swift */; };
+		CBEE9177276734D400D0E284 /* VideoSelectionEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE9176276734D400D0E284 /* VideoSelectionEnvironmentObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CB0F4352273D0F8500C40377 /* VideoEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingView.swift; sourceTree = "<group>"; };
+		CB0F4352273D0F8500C40377 /* VideoEditingViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingViewRepresentable.swift; sourceTree = "<group>"; };
 		CB0F4426273E7FAB00C40377 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CB1A64922709D5820085B25E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CB1A64962709D6170085B25E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 		CB1A64A82709D7FD0085B25E /* Color+definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+definition.swift"; sourceTree = "<group>"; };
 		CB1A64AC2709E1280085B25E /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		CB1A657A2709EB8E0085B25E /* UIColor+colorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colorImage.swift"; sourceTree = "<group>"; };
+		CB2EF2E72764BBB9001070A4 /* VideoEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingView.swift; sourceTree = "<group>"; };
 		CB3F0546273AFBFD00CA1AD2 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingViewController.swift; sourceTree = "<group>"; };
 		CB60E872274F53CE0027ECF3 /* TrimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimingView.swift; sourceTree = "<group>"; };
@@ -100,6 +107,11 @@
 		CBDFCEAE27550BA600983284 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Carthage/Build/SDWebImage.xcframework/ios-arm64_armv7/SDWebImage.framework"; sourceTree = "<group>"; };
 		CBE27EC82754EF8100BDEDD6 /* Video-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Video-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
+		CBEE8EF22766CCA300D0E284 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		CBEE8FC72766EAA700D0E284 /* url+export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "url+export.swift"; sourceTree = "<group>"; };
+		CBEE909C27672AB500D0E284 /* VideoUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadView.swift; sourceTree = "<group>"; };
+		CBEE909E27672B7900D0E284 /* VideoUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadViewModel.swift; sourceTree = "<group>"; };
+		CBEE9176276734D400D0E284 /* VideoSelectionEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionEnvironmentObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +142,9 @@
 		CB0F4351273D0F6E00C40377 /* VideoEditing */ = {
 			isa = PBXGroup;
 			children = (
-				CB60E872274F53CE0027ECF3 /* TrimingView.swift */,
-				CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */,
-				CB0F4352273D0F8500C40377 /* VideoEditingView.swift */,
+				CBEE91722767316D00D0E284 /* UIKit */,
+				CB0F4352273D0F8500C40377 /* VideoEditingViewRepresentable.swift */,
+				CB2EF2E72764BBB9001070A4 /* VideoEditingView.swift */,
 			);
 			path = VideoEditing;
 			sourceTree = "<group>";
@@ -142,13 +154,15 @@
 			children = (
 				CB73EC2A273BDE9D00632A4C /* Component */,
 				CB1A64952709D5E50085B25E /* Home */,
-				CB1A64982709D61C0085B25E /* Timeline */,
-				CB0F4351273D0F6E00C40377 /* VideoEditing */,
-				CB1A649B2709D6430085B25E /* VideoSelection */,
 				CB1A649E2709D66C0085B25E /* MessageList */,
 				CB1A649F2709D6750085B25E /* Mypage */,
-				CB91E5F82709CB3600052541 /* ContentView.swift */,
 				CBBF89852732E14500CFF9AD /* Tab */,
+				CB1A64982709D61C0085B25E /* Timeline */,
+				CB0F4351273D0F6E00C40377 /* VideoEditing */,
+				CBEE909B27672A9D00D0E284 /* VideoUpload */,
+				CBEE8EF12766CC7100D0E284 /* VideoPlayer */,
+				CB1A649B2709D6430085B25E /* VideoSelection */,
+				CB91E5F82709CB3600052541 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,6 +189,7 @@
 			children = (
 				CB1A64992709D6390085B25E /* VideoSelectionView.swift */,
 				CB88606A27397F8200F3E7BE /* VideoSelectionViewModel.swift */,
+				CBEE9176276734D400D0E284 /* VideoSelectionEnvironmentObject.swift */,
 			);
 			path = VideoSelection;
 			sourceTree = "<group>";
@@ -208,6 +223,7 @@
 		CB1A64A52709D74D0085B25E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CBEE8FC62766EA9600D0E284 /* URL */,
 				CB80DE7E2747F02100B40803 /* Error */,
 				CBBF89822732E0D300CFF9AD /* UIApplication */,
 				CB1A64AB2709E1180085B25E /* Image */,
@@ -381,6 +397,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CBEE8EF12766CC7100D0E284 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				CBEE8EF22766CCA300D0E284 /* VideoPlayerView.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		CBEE8FC62766EA9600D0E284 /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				CBEE8FC72766EAA700D0E284 /* url+export.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		CBEE909B27672A9D00D0E284 /* VideoUpload */ = {
+			isa = PBXGroup;
+			children = (
+				CBEE909C27672AB500D0E284 /* VideoUploadView.swift */,
+				CBEE909E27672B7900D0E284 /* VideoUploadViewModel.swift */,
+			);
+			path = VideoUpload;
+			sourceTree = "<group>";
+		};
+		CBEE91722767316D00D0E284 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				CB60E872274F53CE0027ECF3 /* TrimingView.swift */,
+				CB60E527274B57C40027ECF3 /* VideoEditingViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,8 +572,10 @@
 				CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */,
 				CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */,
 				CB80DE802747F03200B40803 /* Error+handle.swift in Sources */,
-				CB0F4353273D0F8500C40377 /* VideoEditingView.swift in Sources */,
+				CBEE909D27672AB500D0E284 /* VideoUploadView.swift in Sources */,
+				CB0F4353273D0F8500C40377 /* VideoEditingViewRepresentable.swift in Sources */,
 				CB1A64A32709D6990085B25E /* MypageView.swift in Sources */,
+				CB2EF2E82764BBB9001070A4 /* VideoEditingView.swift in Sources */,
 				CB60E528274B57C40027ECF3 /* VideoEditingViewController.swift in Sources */,
 				CB1A64A12709D68D0085B25E /* MessageListView.swift in Sources */,
 				CB1A64A92709D7FD0085B25E /* Color+definition.swift in Sources */,
@@ -532,6 +584,7 @@
 				CB1A649D2709D6610085B25E /* TimelineView.swift in Sources */,
 				CB80DF56274820E800B40803 /* WebSocketClient.swift in Sources */,
 				CB80DF5427481AB900B40803 /* WebSocketServer.swift in Sources */,
+				CBEE9177276734D400D0E284 /* VideoSelectionEnvironmentObject.swift in Sources */,
 				CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */,
 				CB1A649A2709D6390085B25E /* VideoSelectionView.swift in Sources */,
 				CB91E5F92709CB3600052541 /* ContentView.swift in Sources */,
@@ -540,9 +593,12 @@
 				CB1A64972709D6170085B25E /* HomeViewModel.swift in Sources */,
 				CB60E873274F53CE0027ECF3 /* TrimingView.swift in Sources */,
 				CB1A64AD2709E1280085B25E /* UIImage+resize.swift in Sources */,
+				CBEE8FC82766EAA700D0E284 /* url+export.swift in Sources */,
 				CB80DE7D2747EBC400B40803 /* APIManager.swift in Sources */,
 				CB3F0547273AFBFD00CA1AD2 /* Mock.swift in Sources */,
+				CBEE909F27672B7900D0E284 /* VideoUploadViewModel.swift in Sources */,
 				CB73EC27273BA45800632A4C /* VSPHPickerViewController.swift in Sources */,
+				CBEE8EF32766CCA300D0E284 /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
