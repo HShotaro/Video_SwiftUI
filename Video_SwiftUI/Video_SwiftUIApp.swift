@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RxSwift
 
 @main
 struct Video_SwiftUIApp: App {

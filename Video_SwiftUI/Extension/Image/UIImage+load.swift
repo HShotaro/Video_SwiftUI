@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 func downloadImageAsync(url: URL, completion: @escaping (UIImage?) -> Void) {
     let session = URLSession(configuration: .default)

@@ -35,6 +35,8 @@
 		CB91E6082709CB3700052541 /* Video_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6072709CB3700052541 /* Video_SwiftUITests.swift */; };
 		CB91E6122709CB3700052541 /* Video_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6112709CB3700052541 /* Video_SwiftUIUITests.swift */; };
 		CB91E6142709CB3700052541 /* Video_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB91E6132709CB3700052541 /* Video_SwiftUIUITestsLaunchTests.swift */; };
+		CBBEEAB227687F6300EAA50B /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBEEAB127687F6300EAA50B /* RxSwift.xcframework */; };
+		CBBEEAB327687F6300EAA50B /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CBBEEAB127687F6300EAA50B /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CBBF89802732D6F000CFF9AD /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */; };
 		CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */; };
 		CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */; };
@@ -64,6 +66,20 @@
 			remoteInfo = Video_SwiftUI;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CBBEEAB427687F6300EAA50B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CBBEEAB327687F6300EAA50B /* RxSwift.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CB0F4352273D0F8500C40377 /* VideoEditingViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingViewRepresentable.swift; sourceTree = "<group>"; };
@@ -98,6 +114,7 @@
 		CB91E60D2709CB3700052541 /* Video_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Video_SwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB91E6112709CB3700052541 /* Video_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		CB91E6132709CB3700052541 /* Video_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBBEEAB127687F6300EAA50B /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage_Cache/RxSwift.xcframework; sourceTree = "<group>"; };
 		CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
 		CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplilcation+safeArea.swift.swift"; sourceTree = "<group>"; };
 		CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
@@ -119,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBBEEAB227687F6300EAA50B /* RxSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +408,7 @@
 		CBDFCEA92755061E00983284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBBEEAB127687F6300EAA50B /* RxSwift.xcframework */,
 				CBDFCEAE27550BA600983284 /* SDWebImage.framework */,
 				CB8B6A8E27559E62005CB97F /* SDWebImage.framework */,
 				CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */,
@@ -441,6 +460,7 @@
 				CB91E5EF2709CB3600052541 /* Sources */,
 				CB91E5F02709CB3600052541 /* Frameworks */,
 				CB91E5F12709CB3600052541 /* Resources */,
+				CBBEEAB427687F6300EAA50B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

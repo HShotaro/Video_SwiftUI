@@ -1,0 +1,3 @@
+[submodule "Carthage_Cache"]
+	path = Carthage_Cache
+	url = git@github.com:HShotaro/Carthage_Cache.git
