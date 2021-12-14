@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RxSwift
+import Firebase
 
 @main
 struct Video_SwiftUIApp: App {

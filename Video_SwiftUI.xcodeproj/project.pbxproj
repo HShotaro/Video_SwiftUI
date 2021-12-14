@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052AC16A42B9E189898B4B0E /* libPods-Video_SwiftUI-Video_SwiftUIUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B17C0E5BDE63F4ECC5EFA60 /* libPods-Video_SwiftUI-Video_SwiftUIUITests.a */; };
+		536ECB591E5E004BD7D49004 /* libPods-Video_SwiftUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DB5DABB3BBC3567ADC5BD4 /* libPods-Video_SwiftUI.a */; };
+		8B91E396FF01017341D196B2 /* libPods-Video_SwiftUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E257AC1B2512E12C5E8F8388 /* libPods-Video_SwiftUITests.a */; };
 		CB0F4353273D0F8500C40377 /* VideoEditingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4352273D0F8500C40377 /* VideoEditingViewRepresentable.swift */; };
 		CB0F4427273E7FAB00C40377 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0F4426273E7FAB00C40377 /* CameraView.swift */; };
 		CB1A64932709D5820085B25E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1A64922709D5820085B25E /* HomeView.swift */; };
@@ -82,6 +85,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00DB5DABB3BBC3567ADC5BD4 /* libPods-Video_SwiftUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video_SwiftUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3391D16CBB0722137ADB561A /* Pods-Video_SwiftUI-Video_SwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUI-Video_SwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUI-Video_SwiftUIUITests/Pods-Video_SwiftUI-Video_SwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3F387EDF0811272723A173B4 /* Pods-Video_SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUITests/Pods-Video_SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6B17C0E5BDE63F4ECC5EFA60 /* libPods-Video_SwiftUI-Video_SwiftUIUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video_SwiftUI-Video_SwiftUIUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78349A57DD2586FCCFDCB8E7 /* Pods-Video_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUI/Pods-Video_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		7903A72D1541F2A28FE8B0B9 /* Pods-Video_SwiftUI-Video_SwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUI-Video_SwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUI-Video_SwiftUIUITests/Pods-Video_SwiftUI-Video_SwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B3328A2C375A8C3DAE1F6EDB /* Pods-Video_SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUITests/Pods-Video_SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CB0F4352273D0F8500C40377 /* VideoEditingViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditingViewRepresentable.swift; sourceTree = "<group>"; };
 		CB0F4426273E7FAB00C40377 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CB1A64922709D5820085B25E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -129,6 +139,8 @@
 		CBEE909C27672AB500D0E284 /* VideoUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadView.swift; sourceTree = "<group>"; };
 		CBEE909E27672B7900D0E284 /* VideoUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadViewModel.swift; sourceTree = "<group>"; };
 		CBEE9176276734D400D0E284 /* VideoSelectionEnvironmentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSelectionEnvironmentObject.swift; sourceTree = "<group>"; };
+		E257AC1B2512E12C5E8F8388 /* libPods-Video_SwiftUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video_SwiftUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0DCF49B019B45073FC422A /* Pods-Video_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Video_SwiftUI/Pods-Video_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBBEEAB227687F6300EAA50B /* RxSwift.xcframework in Frameworks */,
+				536ECB591E5E004BD7D49004 /* libPods-Video_SwiftUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B91E396FF01017341D196B2 /* libPods-Video_SwiftUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,12 +165,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052AC16A42B9E189898B4B0E /* libPods-Video_SwiftUI-Video_SwiftUIUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE0388A8330C25F991177C81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78349A57DD2586FCCFDCB8E7 /* Pods-Video_SwiftUI.debug.xcconfig */,
+				FE0DCF49B019B45073FC422A /* Pods-Video_SwiftUI.release.xcconfig */,
+				7903A72D1541F2A28FE8B0B9 /* Pods-Video_SwiftUI-Video_SwiftUIUITests.debug.xcconfig */,
+				3391D16CBB0722137ADB561A /* Pods-Video_SwiftUI-Video_SwiftUIUITests.release.xcconfig */,
+				3F387EDF0811272723A173B4 /* Pods-Video_SwiftUITests.debug.xcconfig */,
+				B3328A2C375A8C3DAE1F6EDB /* Pods-Video_SwiftUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CB0F4351273D0F6E00C40377 /* VideoEditing */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +352,7 @@
 				CB91E6102709CB3700052541 /* Video_SwiftUIUITests */,
 				CB91E5F42709CB3600052541 /* Products */,
 				CBDFCEA92755061E00983284 /* Frameworks */,
+				BE0388A8330C25F991177C81 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -412,6 +441,9 @@
 				CBDFCEAE27550BA600983284 /* SDWebImage.framework */,
 				CB8B6A8E27559E62005CB97F /* SDWebImage.framework */,
 				CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */,
+				00DB5DABB3BBC3567ADC5BD4 /* libPods-Video_SwiftUI.a */,
+				6B17C0E5BDE63F4ECC5EFA60 /* libPods-Video_SwiftUI-Video_SwiftUIUITests.a */,
+				E257AC1B2512E12C5E8F8388 /* libPods-Video_SwiftUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -457,6 +489,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB91E6172709CB3700052541 /* Build configuration list for PBXNativeTarget "Video_SwiftUI" */;
 			buildPhases = (
+				7846BB368806F6921106DA0D /* [CP] Check Pods Manifest.lock */,
 				CB91E5EF2709CB3600052541 /* Sources */,
 				CB91E5F02709CB3600052541 /* Frameworks */,
 				CB91E5F12709CB3600052541 /* Resources */,
@@ -467,8 +500,6 @@
 			dependencies = (
 			);
 			name = Video_SwiftUI;
-			packageProductDependencies = (
-			);
 			productName = Video_SwiftUI;
 			productReference = CB91E5F32709CB3600052541 /* Video_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -477,6 +508,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB91E61A2709CB3700052541 /* Build configuration list for PBXNativeTarget "Video_SwiftUITests" */;
 			buildPhases = (
+				131FECC32AFB2E59111531F7 /* [CP] Check Pods Manifest.lock */,
 				CB91E5FF2709CB3700052541 /* Sources */,
 				CB91E6002709CB3700052541 /* Frameworks */,
 				CB91E6012709CB3700052541 /* Resources */,
@@ -495,6 +527,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB91E61D2709CB3700052541 /* Build configuration list for PBXNativeTarget "Video_SwiftUIUITests" */;
 			buildPhases = (
+				69259CBFB7AFB6658C437CC2 /* [CP] Check Pods Manifest.lock */,
 				CB91E6092709CB3700052541 /* Sources */,
 				CB91E60A2709CB3700052541 /* Frameworks */,
 				CB91E60B2709CB3700052541 /* Resources */,
@@ -541,8 +574,6 @@
 				Base,
 			);
 			mainGroup = CB91E5EA2709CB3600052541;
-			packageReferences = (
-			);
 			productRefGroup = CB91E5F42709CB3600052541 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -579,6 +610,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		131FECC32AFB2E59111531F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Video_SwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69259CBFB7AFB6658C437CC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Video_SwiftUI-Video_SwiftUIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7846BB368806F6921106DA0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Video_SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB91E5EF2709CB3600052541 /* Sources */ = {
@@ -773,6 +873,7 @@
 		};
 		CB91E6182709CB3700052541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78349A57DD2586FCCFDCB8E7 /* Pods-Video_SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -815,6 +916,7 @@
 		};
 		CB91E6192709CB3700052541 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE0DCF49B019B45073FC422A /* Pods-Video_SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -857,6 +959,7 @@
 		};
 		CB91E61B2709CB3700052541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F387EDF0811272723A173B4 /* Pods-Video_SwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -882,6 +985,7 @@
 		};
 		CB91E61C2709CB3700052541 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3328A2C375A8C3DAE1F6EDB /* Pods-Video_SwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -907,6 +1011,7 @@
 		};
 		CB91E61E2709CB3700052541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7903A72D1541F2A28FE8B0B9 /* Pods-Video_SwiftUI-Video_SwiftUIUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -930,6 +1035,7 @@
 		};
 		CB91E61F2709CB3700052541 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3391D16CBB0722137ADB561A /* Pods-Video_SwiftUI-Video_SwiftUIUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
