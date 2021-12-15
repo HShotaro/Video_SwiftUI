@@ -43,6 +43,8 @@
 		CBBF89802732D6F000CFF9AD /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */; };
 		CBBF89842732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */; };
 		CBBF89882732E16300CFF9AD /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */; };
+		CBC11431276A1B6A000C7C16 /* NSMutableData+append.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC11430276A1B6A000C7C16 /* NSMutableData+append.swift */; };
+		CBC11433276A1BE4000C7C16 /* VideoUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC11432276A1BE4000C7C16 /* VideoUploadRepository.swift */; };
 		CBDC570F2741E8750071ADA3 /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC570E2741E8750071ADA3 /* VSImageView.swift */; };
 		CBDC57112741E8DF0071ADA3 /* UIImage+load.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */; };
 		CBE29760273CE52000198C64 /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2975F273CE52000198C64 /* PhotoPickerModel.swift */; };
@@ -128,6 +130,8 @@
 		CBBF897F2732D6F000CFF9AD /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
 		CBBF89832732E0F400CFF9AD /* UIApplilcation+safeArea.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplilcation+safeArea.swift.swift"; sourceTree = "<group>"; };
 		CBBF89872732E16300CFF9AD /* BottomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
+		CBC11430276A1B6A000C7C16 /* NSMutableData+append.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+append.swift"; sourceTree = "<group>"; };
+		CBC11432276A1BE4000C7C16 /* VideoUploadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadRepository.swift; sourceTree = "<group>"; };
 		CBDC570E2741E8750071ADA3 /* VSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSImageView.swift; sourceTree = "<group>"; };
 		CBDC57102741E8DF0071ADA3 /* UIImage+load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+load.swift"; sourceTree = "<group>"; };
 		CBDFCEAA2755061E00983284 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Carthage/Build/SDWebImage.xcframework; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 		CB1A64A52709D74D0085B25E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CBC1142F276A1B5B000C7C16 /* Data */,
 				CBEE8FC62766EA9600D0E284 /* URL */,
 				CB80DE7E2747F02100B40803 /* Error */,
 				CBBF89822732E0D300CFF9AD /* UIApplication */,
@@ -426,6 +431,14 @@
 			path = Tab;
 			sourceTree = "<group>";
 		};
+		CBC1142F276A1B5B000C7C16 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CBC11430276A1B6A000C7C16 /* NSMutableData+append.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		CBDC570D2741E8520071ADA3 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +482,7 @@
 			children = (
 				CBEE909C27672AB500D0E284 /* VideoUploadView.swift */,
 				CBEE909E27672B7900D0E284 /* VideoUploadViewModel.swift */,
+				CBC11432276A1BE4000C7C16 /* VideoUploadRepository.swift */,
 			);
 			path = VideoUpload;
 			sourceTree = "<group>";
@@ -695,7 +709,9 @@
 				CBEE909D27672AB500D0E284 /* VideoUploadView.swift in Sources */,
 				CB0F4353273D0F8500C40377 /* VideoEditingViewRepresentable.swift in Sources */,
 				CB1A64A32709D6990085B25E /* MypageView.swift in Sources */,
+				CBC11433276A1BE4000C7C16 /* VideoUploadRepository.swift in Sources */,
 				CB2EF2E82764BBB9001070A4 /* VideoEditingView.swift in Sources */,
+				CBC11431276A1B6A000C7C16 /* NSMutableData+append.swift in Sources */,
 				CB60E528274B57C40027ECF3 /* VideoEditingViewController.swift in Sources */,
 				CB1A64A12709D68D0085B25E /* MessageListView.swift in Sources */,
 				CB1A64A92709D7FD0085B25E /* Color+definition.swift in Sources */,
