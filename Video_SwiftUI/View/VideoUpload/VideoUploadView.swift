@@ -49,9 +49,9 @@ struct VideoUploadView: View {
                     }
                                   
                     Button {
-                        Task {
-                            try await self.viewModel.upload(videoURL: url, videoTitle: videoTitle, description: description)
-                        }
+//                        Task {
+//                            try await self.viewModel.upload(videoURL: url, videoTitle: videoTitle, description: description)
+//                        }
                     } label: {
                         Text("アップロード")
                     }
@@ -63,9 +63,9 @@ struct VideoUploadView: View {
                 VStack {
                     Text(error.localizedDescription)
                     Button {
-                        Task {
-                            try await self.viewModel.upload(videoURL: url, videoTitle: videoTitle, description: description)
-                        }
+//                        Task {
+//                            try await self.viewModel.upload(videoURL: url, videoTitle: videoTitle, description: description)
+//                        }
                     } label: {
                         Text("リトライ")
                     }
