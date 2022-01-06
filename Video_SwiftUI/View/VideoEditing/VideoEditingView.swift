@@ -15,9 +15,10 @@ struct VideoEditingView: View {
     @State var destinationView: AnyView? = nil
     
     struct FileExportError: Error {}
+    struct FileDeleteError: Error {}
     struct AVAssetExportSessionError: Error {}
     
-    let url: URL
+    @State var url: URL
     var body: some View {
         NavigationLink(destination: destinationView, isActive: $isPushActive) {
             EmptyView()
@@ -31,8 +32,12 @@ struct VideoEditingView: View {
                 VideoEditingView.write(composition: newComposition) { result in
                     switch result {
                     case let .success(url):
-                        self.destinationView = AnyView(VideoUploadView(url: url))
-                        self.isPushActive = true
+                        removeOriginalURL { result in
+                            guard case .success = result else { return }
+                            self.url = url
+                            self.destinationView = AnyView(VideoUploadView(url: url))
+                            self.isPushActive = true
+                        }
                     case .failure:
                         break
                     }
@@ -42,10 +47,13 @@ struct VideoEditingView: View {
     
     static func getNewComposition(asset: AVURLAsset, startTime: Double, endTime: Double) -> AVComposition? {
         let composition = AVMutableComposition()
-        guard let videoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else { return nil }
-        guard let track = asset.tracks(withMediaType: .video).first else { return nil }
+        guard let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else { return nil }
+        guard let audioCompositionTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) else { return nil }
+        guard let videoAssetTrack = asset.tracks(withMediaType: .video).first else { return nil }
+        guard let audioAssetTrack = asset.tracks(withMediaType: .audio).first else { return nil }
         do {
-            try videoTrack.insertTimeRange(CMTimeRange(start: CMTime(seconds: startTime, preferredTimescale: track.naturalTimeScale), end: CMTime(seconds: endTime, preferredTimescale: track.naturalTimeScale)), of: track, at: .zero)
+            try videoCompositionTrack.insertTimeRange(CMTimeRange(start: CMTime(seconds: startTime, preferredTimescale: videoAssetTrack.naturalTimeScale), end: CMTime(seconds: endTime, preferredTimescale: videoAssetTrack.naturalTimeScale)), of: videoAssetTrack, at: .zero)
+            try audioCompositionTrack.insertTimeRange(CMTimeRange(start: CMTime(seconds: startTime, preferredTimescale: audioAssetTrack.naturalTimeScale), end: CMTime(seconds: endTime, preferredTimescale: audioAssetTrack.naturalTimeScale)), of: audioAssetTrack, at: .zero)
             return composition.copy() as? AVComposition
         } catch {
             return nil
@@ -72,6 +80,17 @@ struct VideoEditingView: View {
             default:
                 break
             }
+        }
+    }
+    
+    func removeOriginalURL(completion: @escaping (Result<Void, Error>) -> Void) {
+        do {
+            if FileManager.default.fileExists(atPath: url.path) {
+                try FileManager.default.removeItem(at: url)
+                completion(.success(()))
+            }
+        } catch {
+            completion(.failure(FileDeleteError()))
         }
     }
 }

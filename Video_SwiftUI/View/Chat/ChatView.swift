@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct MessageListView: View {
+struct ChatView: View {
     var body: some View {
         NavigationView {
             Text("Message List")
+                .padding(.bottom, BottomTabView.height)
+                .navigationTitle(ContentView.Tab.chat.rawValue)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
-struct MessageListView_Previews: PreviewProvider {
+struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageListView()
+        ChatView()
     }
 }

@@ -11,6 +11,8 @@ struct TimelineView: View {
     var body: some View {
         NavigationView {
             Text("Timeline")
+                .padding(.bottom, BottomTabView.height)
+                .navigationTitle(ContentView.Tab.timeline.rawValue)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

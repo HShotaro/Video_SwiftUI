@@ -11,6 +11,8 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             Text("Home")
+            .padding(.bottom, BottomTabView.height)
+            .navigationTitle(ContentView.Tab.home.rawValue)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

@@ -47,20 +47,20 @@ struct BottomTabView: View {
             
             Button {
                 isVideoFilingPresented = false
-                selection = .messageList
+                selection = .chat
             } label: {
                 VStack {
-                    BottomTabItemView(image: Image(systemName: "text.bubble"), text: ContentView.Tab.messageList.rawValue, tab: .messageList, selected: $selection
+                    BottomTabItemView(image: Image(systemName: "text.bubble"), text: ContentView.Tab.chat.rawValue, tab: .chat, selected: $selection
                     ).frame(width: itemWidth())
                 }
             }
             
             Button {
                 isVideoFilingPresented = false
-                selection = .mypage
+                selection = .myvideo
             } label: {
                 VStack {
-                    BottomTabItemView(image: Image(systemName: "person"), text:ContentView.Tab.mypage.rawValue, tab: .mypage, selected: $selection
+                    BottomTabItemView(image: Image(systemName: "person"), text:ContentView.Tab.myvideo.rawValue, tab: .myvideo, selected: $selection
                     ).frame(width: itemWidth())
              
                 }

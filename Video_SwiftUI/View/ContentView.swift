@@ -11,8 +11,8 @@ struct ContentView: View {
     enum Tab: String, CaseIterable {
             case home = "ホーム"
             case timeline = "タイムライン"
-            case messageList = "メッセージ"
-            case mypage = "マイページ"
+            case chat = "チャット"
+            case myvideo = "マイビデオ"
         }
     @State private var selection: Tab = .home
     @State private var isVideoSelectionPresented = false
@@ -22,20 +22,12 @@ struct ContentView: View {
             switch selection {
             case .home:
                 HomeView()
-                    .padding(.bottom, BottomTabView.height)
-                    .navigationTitle(ContentView.Tab.home.rawValue)
             case .timeline:
                 TimelineView()
-                    .padding(.bottom, BottomTabView.height)
-                    .navigationTitle(ContentView.Tab.timeline.rawValue)
-            case .messageList:
-                MessageListView()
-                    .padding(.bottom, BottomTabView.height)
-                    .navigationTitle(ContentView.Tab.messageList.rawValue)
-            case .mypage:
-                MypageView()
-                    .padding(.bottom, BottomTabView.height)
-                    .navigationTitle(ContentView.Tab.mypage.rawValue)
+            case .chat:
+                ChatView()
+            case .myvideo:
+                MyVideoView()
             }
             if isVideoSelectionPresented {
                 Color.clear.fullScreenCover(isPresented: $isVideoSelectionPresented) {
