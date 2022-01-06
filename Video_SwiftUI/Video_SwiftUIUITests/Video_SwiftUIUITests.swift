@@ -2,7 +2,7 @@
 //  Video_SwiftUIUITests.swift
 //  Video_SwiftUIUITests
 //
-//  Created by Shotaro Hirano on 2021/10/03.
+//  Created by Shotaro Hirano on 2022/01/06.
 //
 
 import XCTest
