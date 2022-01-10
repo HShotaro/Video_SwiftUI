@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct VideoSaveView: View {
     enum Stateful: Equatable {
@@ -35,25 +36,38 @@ struct VideoSaveView: View {
             switch viewModel.state {
             case .editing:
                 VStack {
+                    VideoPlayer(player: AVPlayer(url: url))
+                        .frame(height: 200)
+                        .padding(.bottom, 35)
                     HStack(spacing: 5) {
                         Text("タイトル名: ")
+                            .foregroundColor(Color(.systemGray))
                         TextField("", text: $videoTitle)
+                            .foregroundColor(Color(.label))
                     }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 4)
+                    .border(Color(.systemGray), width: 2)
                     Button {
                         self.viewModel.addVideo(videoTitle: videoTitle, urlString: url.absoluteString)
                     } label: {
                         Text("この内容で保存する")
+                            .padding(12)
+                            .cornerRadius(3)
+                            .border(LinearGradient(
+                                gradient: Gradient(colors: [.green, .blue]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing),
+                                width: 3)
                     }
-                }.padding(.leading, 12.0)
+                }.padding(.horizontal, 12.0)
             case .uploaded:
                 Text("アップロードに成功しました")
             case let .uploadError(error):
                 VStack {
                     Text(error.localizedDescription)
                     Button {
-                        Task {
-                            try await self.viewModel.addVideo(videoTitle: videoTitle, urlString: url.absoluteString)
-                        }
+                        self.viewModel.addVideo(videoTitle: videoTitle, urlString: url.absoluteString)
                     } label: {
                         Text("\(error.localizedDescription)\nリトライ")
                     }
