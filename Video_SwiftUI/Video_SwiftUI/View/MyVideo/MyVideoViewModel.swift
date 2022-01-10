@@ -36,6 +36,7 @@ class MyVideoViewModel: ObservableObject {
                 try withAnimation {
                     selectedVideos.forEach(viewContext.delete)
                     try viewContext.save()
+                    onEditing = false
                 }
                 continuation.resume(returning: ())
             } catch {

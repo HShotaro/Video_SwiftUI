@@ -13,11 +13,7 @@ struct MyVideoView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Video.addedDate, ascending: true)],
         animation: .default)
-    private var videos: FetchedResults<Video> {
-        didSet {
-            viewModel.onEditing = false
-        }
-    }
+    private var videos: FetchedResults<Video>
     
     var body: some View {
         NavigationView {
