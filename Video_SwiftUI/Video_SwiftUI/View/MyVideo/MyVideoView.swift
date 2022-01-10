@@ -10,27 +10,45 @@ import AVKit
 
 struct MyVideoView: View {
     @StateObject var viewModel = MyVideoViewModel()
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Video.addedDate, ascending: true)],
+        animation: .default)
+    private var videos: FetchedResults<Video> {
+        didSet {
+            viewModel.onEditing = false
+        }
+    }
     
     var body: some View {
         NavigationView {
-            List(viewModel.videoURLs, id: \.self.absoluteString) { videoURL in
-                HStack(spacing: 5) {
-                    if viewModel.onEditing {
-                        Button(action: {
-                            self.viewModel.toggleSelectedVideoState(selectedVideo: videoURL)
-                        }) {
-                            if viewModel.selectedVideos.contains(videoURL) {
-                                Image(systemName: "checkmark.circle.fill")
-                            } else {
-                                Image(systemName: "checkmark.circle")
-                            }
-                        }
-                        .foregroundColor(Color.accentColor)
-                        .frame(width: 60, height: 60, alignment: .center)
-                        .buttonStyle(PlainButtonStyle())
+            List(videos, id: \.self.objectID) { v in
+                VStack(spacing: 5) {
+                    if let title = v.title {
+                        Text(title)
                     }
-                    VideoPlayer(player: AVPlayer(url: videoURL))
-                        .frame(minHeight: 200)
+                    HStack(spacing: 5) {
+                        if viewModel.onEditing {
+                            Button(action: {
+                                self.viewModel.toggleSelectedVideoState(selectedVideo: v)
+                            }) {
+                                if viewModel.selectedVideos.contains(v) {
+                                    Image(systemName: "checkmark.circle.fill")
+                                } else {
+                                    Image(systemName: "checkmark.circle")
+                                }
+                            }
+                            .foregroundColor(Color.accentColor)
+                            .frame(width: 60, height: 60, alignment: .center)
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                        if let url = URL(string: v.urlString ?? "") {
+                            VideoPlayer(player: AVPlayer(url: url))
+                                .frame(minHeight: 200)
+                        }
+                    }
+                    if let addedDate = v.addedDate {
+                        Text(addedDate, formatter: itemFormatter)
+                    }
                 }
             }
             .padding(.bottom, BottomTabView.height)
@@ -38,7 +56,9 @@ struct MyVideoView: View {
             .navigationBarItems(
                 leading:
                     Button(action: {
-                        self.viewModel.deleteVideos()
+                        Task {
+                            try await self.viewModel.deleteVideos()
+                        }
                     }) {
                         Text("\(viewModel.selectedVideos.count)件削除")
                     }.disabled(!viewModel.onEditing)
@@ -50,16 +70,20 @@ struct MyVideoView: View {
                         Text(viewModel.onEditing ? "キャンセル" : "編集")
                     }
             )
-            .onAppear {
-                viewModel.refreshVideoURLs()
-            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
+    
+    private let itemFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .medium
+        return formatter
+    }()
 }
 
 struct MyVideoView_Previews: PreviewProvider {
     static var previews: some View {
-        MyVideoView()
+        MyVideoView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -35,7 +35,7 @@ struct VideoEditingView: View {
                         removeOriginalURL { result in
                             guard case .success = result else { return }
                             self.url = url
-                            self.destinationView = AnyView(VideoUploadView(url: url))
+                            self.destinationView = AnyView(VideoSaveView(url: url))
                             self.isPushActive = true
                         }
                     case .failure:
