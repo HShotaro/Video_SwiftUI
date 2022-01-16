@@ -17,11 +17,24 @@ extension PHAsset {
         let manager: PHImageManager = PHImageManager()
         return try await withCheckedThrowingContinuation({ continuation in
             manager.requestAVAsset(forVideo: self, options: options) { avAsset, avAuvioMix, info in
-                if let avAsset = avAsset {
-                    continuation.resume(returning: avAsset)
-                } else {
-                    continuation.resume(throwing: PHAssetConvertError())
+                if let error = info?[PHImageErrorKey] as? Error {
+                    continuation.resume(throwing: error)
+                    return
                 }
+                
+                guard !(info?[PHImageCancelledKey] as? Bool ?? false) else {
+                    continuation.resume(throwing: CancellationError())
+                    return
+                }
+                guard !(info?[PHImageResultIsDegradedKey] as? Bool ?? false) else {
+                    return
+                }
+                
+                guard let avAsset = avAsset else {
+                    continuation.resume(throwing: PHAssetConvertError())
+                    return
+                }
+                continuation.resume(returning: avAsset)
             }
         })
     }
@@ -34,11 +47,24 @@ extension PHAsset {
                 targetSize: PHImageManagerMaximumSize,
                 contentMode: .aspectFill,
                    options: nil) { image, info in
-                       if let image = image {
-                           continuation.resume(returning: image)
-                       } else {
-                           continuation.resume(throwing: PHAssetConvertError())
+                       if let error = info?[PHImageErrorKey] as? Error {
+                           continuation.resume(throwing: error)
+                           return
                        }
+                       
+                       guard !(info?[PHImageCancelledKey] as? Bool ?? false) else {
+                           continuation.resume(throwing: CancellationError())
+                           return
+                       }
+                       guard !(info?[PHImageResultIsDegradedKey] as? Bool ?? false) else {
+                           return
+                       }
+                       
+                       guard let image = image else {
+                           continuation.resume(throwing: PHAssetConvertError())
+                           return
+                       }
+                       continuation.resume(returning: image)
             }
         })
     }
