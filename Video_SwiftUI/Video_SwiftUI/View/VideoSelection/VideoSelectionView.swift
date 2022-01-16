@@ -124,6 +124,7 @@ struct VideoSelectionView: View {
                 let status = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
                 switch status {
                 case .authorized, .limited:
+                    PHPhotoLibrary.shared().register(viewModel)
                     Task {
                         await viewModel.fetchPHAsset()
                     }
@@ -135,6 +136,9 @@ struct VideoSelectionView: View {
                     }
                 }
             }
+        }
+        .onDisappear {
+            PHPhotoLibrary.shared().unregisterChangeObserver(viewModel)
         }
         .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(

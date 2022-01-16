@@ -8,7 +8,7 @@
 import Foundation
 import PhotosUI
 
-class VideoSelectionViewModel: ObservableObject {
+class VideoSelectionViewModel: NSObject, ObservableObject {
     @Published var phAssetImages: [UIImage] = []
     @Published var isEditing: Bool = false
     @Published var displayMode: VideoSelectionView.DisplayMode = .library
@@ -94,3 +94,10 @@ class VideoSelectionViewModel: ObservableObject {
     }
 }
 
+extension VideoSelectionViewModel: PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        Task {
+            await fetchPHAsset()
+        }
+    }
+}
