@@ -29,7 +29,6 @@
 		CBB328B22786DAC30094C2BB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328AF2786DAC30094C2BB /* APIManager.swift */; };
 		CBB328B32786DAC30094C2BB /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328B02786DAC30094C2BB /* WebSocketClient.swift */; };
 		CBB328B42786DAC30094C2BB /* WebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328B12786DAC30094C2BB /* WebSocketServer.swift */; };
-		CBB328B72786DAF10094C2BB /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328B62786DAF10094C2BB /* PhotoPickerModel.swift */; };
 		CBB328BB2786DB180094C2BB /* VSPHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328B92786DB180094C2BB /* VSPHPickerViewController.swift */; };
 		CBB328BC2786DB180094C2BB /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328BA2786DB180094C2BB /* CameraView.swift */; };
 		CBB328CA2786DC090094C2BB /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328C92786DC090094C2BB /* VSImageView.swift */; };
@@ -56,6 +55,7 @@
 		CBB328F62787BA910094C2BB /* VideoSaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */; };
 		CBC86E86278BD2E6007B011E /* Video+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */; };
 		CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */; };
+		CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +101,6 @@
 		CBB328AF2786DAC30094C2BB /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		CBB328B02786DAC30094C2BB /* WebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		CBB328B12786DAC30094C2BB /* WebSocketServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocketServer.swift; sourceTree = "<group>"; };
-		CBB328B62786DAF10094C2BB /* PhotoPickerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
 		CBB328B92786DB180094C2BB /* VSPHPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSPHPickerViewController.swift; sourceTree = "<group>"; };
 		CBB328BA2786DB180094C2BB /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CBB328C92786DC090094C2BB /* VSImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSImageView.swift; sourceTree = "<group>"; };
@@ -128,6 +127,7 @@
 		CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSaveViewModel.swift; sourceTree = "<group>"; };
 		CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+convert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +222,7 @@
 		CBB328972786D9CA0094C2BB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CBF9AFF32793C46E002A35C6 /* PHAsset */,
 				CBB3289D2786D9F90094C2BB /* URL */,
 				CBB3289C2786D9F10094C2BB /* UIApplication */,
 				CBB3289B2786D9EC0094C2BB /* Image */,
@@ -296,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				CBC86E83278BD2AF007B011E /* CoreData */,
-				CBB328B62786DAF10094C2BB /* PhotoPickerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,6 +453,14 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		CBF9AFF32793C46E002A35C6 /* PHAsset */ = {
+			isa = PBXGroup;
+			children = (
+				CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */,
+			);
+			path = PHAsset;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,6 +606,7 @@
 				CBB328D02786DC360094C2BB /* ChatView.swift in Sources */,
 				CBB328BC2786DB180094C2BB /* CameraView.swift in Sources */,
 				CBB328CA2786DC090094C2BB /* VSImageView.swift in Sources */,
+				CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */,
 				CBB328DF2786DCB80094C2BB /* VideoEditingView.swift in Sources */,
 				CBB328BB2786DB180094C2BB /* VSPHPickerViewController.swift in Sources */,
 				CBB328662786D8420094C2BB /* ContentView.swift in Sources */,
@@ -615,7 +624,6 @@
 				CBB328642786D8420094C2BB /* Video_SwiftUIApp.swift in Sources */,
 				CBB328B42786DAC30094C2BB /* WebSocketServer.swift in Sources */,
 				CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */,
-				CBB328B72786DAF10094C2BB /* PhotoPickerModel.swift in Sources */,
 				CBB328CE2786DC280094C2BB /* HomeView.swift in Sources */,
 				CBB328F12786DD0F0094C2BB /* VideoUploadRepository.swift in Sources */,
 				CBC86E86278BD2E6007B011E /* Video+CoreDataClass.swift in Sources */,
@@ -793,6 +801,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "動画を撮影するため";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "動画を撮影時に音声を取得するため";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "ライブラリの動画を使用するため";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -826,6 +835,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "動画を撮影するため";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "動画を撮影時に音声を取得するため";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "ライブラリの動画を使用するため";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,64 +6,91 @@
 //
 
 import Foundation
-import Photos
 import PhotosUI
-import QuickLookThumbnailing
 
 class VideoSelectionViewModel: ObservableObject {
-    @Published var photoPickerModels = [PhotoPickerModel]()
+    @Published var phAssetImages: [UIImage] = []
     @Published var isEditing: Bool = false
     @Published var displayMode: VideoSelectionView.DisplayMode = .library
-    @Published var isPHPhotoPickerViewPresented = false
     
-    
-    func getPHPickerResults(results: [PHPickerResult]) {
-        // PHPhotoPickerViewでCancelボタンを押した時は実行しない
-        guard results.count > 0 else { return }
-        photoPickerModels = []
-        results.forEach { result in
-            getVideo(from: result.itemProvider, typeIdentifier: UTType.movie.identifier)
-        }
-    }
-    private func getVideo(from itemProvider: NSItemProvider, typeIdentifier: String) {
-        
-        itemProvider.loadFileRepresentation(forTypeIdentifier: typeIdentifier) { [weak self] url, error in
-            do {
-                if let error = error {
-                    print(error.localizedDescription)
+    private var phAssets = [PHAsset]() {
+        didSet {
+            Task {
+                do {
+                    let images = try await PHAssetImages()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.phAssetImages = images
+                    }
+                } catch {
+                    
                 }
-                guard let url = url else { return }
-                
-                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-                guard let targetURL = documentsDirectory?.appendingPathComponent(url.lastPathComponent) else { throw NSError() }
-                
-                if FileManager.default.fileExists(atPath: targetURL.path) {
-                    try FileManager.default.removeItem(at: targetURL)
-                }
-                
-                try FileManager.default.copyItem(at: url, to: targetURL)
-                self?.getThumbnail(targetURL: targetURL)
-            } catch {
-                print(error.localizedDescription)
             }
         }
     }
     
-    private func getThumbnail(targetURL: URL) {
-        let size: CGSize = CGSize(width: 220, height: 220)
-        let scale = UIScreen.main.scale
+    
+    func fetchPHAsset() async {
+        var items: [PHAsset] = []
+        let options = PHFetchOptions()
+        options.sortDescriptors = [
+            NSSortDescriptor(key: "creationDate", ascending: false)
+        ]
         
-        let request = QLThumbnailGenerator.Request(fileAt: targetURL,
-                                                   size: size,
-                                                   scale: scale,
-                                                   representationTypes: .all)
+        let videoPredicate = NSPredicate(format: "mediaType= %d",   PHAssetMediaType.video.rawValue)
+//        let imagePredicate = NSPredicate(format: "mediaType= %d", PHAssetMediaType.audio.rawValue)
+//        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [videoPredicate, imagePredicate])
+        options.predicate = videoPredicate
         
-        QLThumbnailGenerator.shared.generateRepresentations(for: request) { [weak self] (thumbnail, type, error) in
-            DispatchQueue.main.async {
-                guard let thumbnail = thumbnail, error == nil else { return }
-                guard thumbnail.type == .thumbnail || thumbnail.type == .lowQualityThumbnail else { return }
-                self?.photoPickerModels.append(PhotoPickerModel(with: targetURL, photo: thumbnail.uiImage))
+        let result = PHAsset.fetchAssets(with: options)
+        return await withCheckedContinuation { continuation in
+            guard result.count > 0 else {
+                self.phAssets = []
+                continuation.resume(returning: ())
+                return
             }
+            result.enumerateObjects(options: []) { (phAsset: PHAsset, index: Int, stop: UnsafeMutablePointer<ObjCBool>) in
+                items.append(phAsset)
+                if items.count >= result.count {
+                    self.phAssets = items
+                    continuation.resume(returning: ())
+                }
+            }
+        }
+    }
+    
+    private func PHAssetImages() async throws -> [UIImage] {
+        var currentImages: [(image: UIImage?, index: Int)] = []
+        let images: [UIImage] = try await withThrowingTaskGroup(of: (image: UIImage?, index: Int).self) { group -> [UIImage] in
+            let phAssets = phAssets.enumerated().map { index, asset in
+                return (image: asset, index: index)
+            }
+            for asset in phAssets {
+                group.addTask {
+                    let image = try await asset.image.toUIImage()
+                    let thumbnail = image.resizeImage(targetRect: CGRect.init(origin: .zero, size: CGSize(width: min(asset.image.pixelWidth, 200), height: min(asset.image.pixelHeight, 200))))
+                    return (image: thumbnail, index: asset.index)
+                }
+            }
+            
+            for try await t in group {
+                currentImages.append(t)
+            }
+            let newImages: [UIImage] = currentImages.sorted { $0.index < $1.index }.compactMap { $0.image }
+            return newImages
+        }
+        return images
+    }
+    
+    func getVideoURL(selectedIndex: Int) async throws -> URL? {
+        guard selectedIndex >= 0, selectedIndex < phAssets.count else {
+            return nil
+        }
+        do {
+            let avAsset = try await phAssets[selectedIndex].toAVAsset(options: nil)
+            return (avAsset as? AVURLAsset)?.url
+        } catch {
+            return nil
         }
     }
 }
+

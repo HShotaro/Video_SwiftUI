@@ -19,6 +19,8 @@ struct VideoEditingView: View {
     struct AVAssetExportSessionError: Error {}
     
     @State var url: URL
+    let sourceType: VideoSelectionView.DisplayMode
+    
     var body: some View {
         NavigationLink(destination: destinationView, isActive: $isPushActive) {
             EmptyView()
@@ -28,18 +30,19 @@ struct VideoEditingView: View {
                 let asset = AVURLAsset(url: url)
                 let currentVideoAssetEndpoint: Double = currentVideoAssetEndPoint ?? asset.duration.seconds
                 guard let newComposition = VideoEditingView.getNewComposition(asset: asset, startTime: currentVideoAssetStartPoint, endTime: currentVideoAssetEndpoint) else { return }
-                
-                VideoEditingView.write(composition: newComposition) { result in
-                    switch result {
-                    case let .success(url):
-                        removeOriginalURL { result in
-                            guard case .success = result else { return }
+                Task {
+                    do {
+                        let url = try await VideoEditingView.write(composition: newComposition)
+                        if sourceType == .filming {
+                            try await removeOriginalURL()
+                        }
+                        DispatchQueue.main.async {
                             self.url = url
                             self.destinationView = AnyView(VideoSaveView(url: url))
                             self.isPushActive = true
                         }
-                    case .failure:
-                        break
+                    } catch {
+                        
                     }
                 }
             }))
@@ -60,43 +63,51 @@ struct VideoEditingView: View {
         }
     }
     
-    static func write(composition: AVComposition, completion: @escaping (Result<URL, Error>) -> Void) {
-        guard let session = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough) else {
-            completion(.failure(AVAssetExportSessionError()))
-            return
-        }
-        session.outputURL = URL.temporaryExportURL()
-        session.outputFileType = .mp4
-        session.exportAsynchronously {
-            switch session.status {
-            case .completed:
-                if let url = session.outputURL {
-                    completion(.success(url))
-                } else {
-                    completion(.failure(FileExportError()))
+    static func write(composition: AVComposition) async throws -> URL {
+        return try await withCheckedThrowingContinuation { continuation in
+            guard let session = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough) else {
+                continuation.resume(throwing: AVAssetExportSessionError())
+                return
+            }
+            session.outputURL = URL.exportURL()
+            session.outputFileType = .mp4
+            session.exportAsynchronously {
+                switch session.status {
+                case .completed:
+                    if let url = session.outputURL {
+                        continuation.resume(returning: url)
+                    } else {
+                        continuation.resume(throwing: FileExportError())
+                    }
+                case .failed:
+                    continuation.resume(throwing: session.error ?? FileExportError())
+                default:
+                    break
                 }
-            case .failed:
-                completion(.failure(session.error ?? FileExportError()))
-            default:
-                break
             }
         }
     }
     
-    func removeOriginalURL(completion: @escaping (Result<Void, Error>) -> Void) {
+    func removeOriginalURL() async throws -> Void {
         do {
-            if FileManager.default.fileExists(atPath: url.path) {
-                try FileManager.default.removeItem(at: url)
-                completion(.success(()))
+            return try await withCheckedThrowingContinuation { continuation in
+                do {
+                    if FileManager.default.fileExists(atPath: url.path) {
+                        try FileManager.default.removeItem(at: url)
+                        continuation.resume(returning: ())
+                    }
+                } catch {
+                    continuation.resume(throwing: FileDeleteError())
+                }
             }
         } catch {
-            completion(.failure(FileDeleteError()))
+            throw error
         }
     }
 }
 
 struct VideoEditingView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoEditingView(url: URL(string: "")!)
+        VideoEditingView(url: URL(string: "")!, sourceType: .library)
     }
 }
