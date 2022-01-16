@@ -19,6 +19,7 @@ struct VideoSelectionView: View {
     @State var cameraRecordingStatus: RecordingStatus = .ready
     @State var isPushActive = false
     @State var destinationView: AnyView? = nil
+    @State var showAlertToSetting = false
     @Binding var isPresented: Bool
     var body: some View {
         ZStack {
@@ -108,11 +109,29 @@ struct VideoSelectionView: View {
             .shadow(color: Color.black, radius: 22, x: 0, y: 0)
             .offset(x: getEditButtonOriginX(), y: getEditButtonOriginY())
         }
+        .alert(isPresented: $showAlertToSetting ) {
+            Alert(title: Text("設定アプリに移動して写真アプリへのアクセスを許可しますか？"),
+                  primaryButton: Alert.Button.default(Text("はい"), action: {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                }),
+                  secondaryButton: Alert.Button.cancel({
+                self.isPresented = false
+            })
+                        )
+        }
         .onAppear {
-            PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
-                if (status == .authorized || status == .limited) {
+            Task {
+                let status = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
+                switch status {
+                case .authorized, .limited:
                     Task {
                         await viewModel.fetchPHAsset()
+                    }
+                case .notDetermined:
+                    break
+                default:
+                    DispatchQueue.main.async {
+                        self.showAlertToSetting = true
                     }
                 }
             }
