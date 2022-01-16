@@ -46,7 +46,7 @@ struct VideoSelectionView: View {
                             } label: {
                                 Image(uiImage: viewModel.phAssetImages[index])
                                     .resizable()
-                                    .frame(width: photoItemWidth(), height: photoItemWidth(), alignment: .center)
+                                    .aspectRatio(contentMode: .fit)
                             }
                         }
                     }.padding(EdgeInsets(top: 5, leading: 10, bottom: 89, trailing: 10))
@@ -160,11 +160,6 @@ struct VideoSelectionView: View {
         case .filming:
             return Text("撮影")
         }
-    }
-    
-    private func photoItemWidth() -> CGFloat {
-        let safeArea = UIApplication.getSafeArea()
-        return (UIScreen.main.bounds.width - safeArea.left - safeArea.right) / 3 - 40
     }
     
     private func getEditButtonOriginX() -> CGFloat {

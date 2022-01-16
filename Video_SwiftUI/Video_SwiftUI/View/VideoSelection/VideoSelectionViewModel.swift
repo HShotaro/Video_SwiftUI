@@ -67,8 +67,7 @@ class VideoSelectionViewModel: NSObject, ObservableObject {
             for asset in phAssets {
                 group.addTask {
                     let image = try await asset.image.toUIImage()
-                    let thumbnail = image.resizeImage(targetRect: CGRect.init(origin: .zero, size: CGSize(width: min(asset.image.pixelWidth, 200), height: min(asset.image.pixelHeight, 200))))
-                    return (image: thumbnail, index: asset.index)
+                    return (image: image, index: asset.index)
                 }
             }
             
