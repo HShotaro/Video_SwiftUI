@@ -17,8 +17,8 @@ class VideoFilterViewModel: ObservableObject {
     
     @Published var thumbnails: [UIImage] = []
     @Published var filteredVideoURL: URL? = nil
-    
     @Published var videoComposition: AVVideoComposition?
+    @Published var currentProgress: Float?
     
     private func customizedFilter(filter: CIFilter, type: VideoFilterView.FilterType) -> CIFilter {
         let filter = filter
@@ -109,17 +109,18 @@ class VideoFilterViewModel: ObservableObject {
         guard filterType != .none, let videoComposition = videoComposition else { return .success(nil) }
         return await withCheckedContinuation { continuation in
             let asset = AVURLAsset(url: url)
-            guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPreset1280x720) else {
+            currentSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPreset1280x720)
+            guard currentSession != nil  else {
                 continuation.resume(returning: .failure(AVAssetExportSessionError()))
                 return
             }
-            session.videoComposition = videoComposition
-            session.outputURL = URL.exportURL()
-            session.outputFileType = .mp4
-            session.exportAsynchronously {
-                switch session.status {
+            currentSession?.videoComposition = videoComposition
+            currentSession?.outputURL = URL.exportURL()
+            currentSession?.outputFileType = .mp4
+            currentSession?.exportAsynchronously { [weak self] in
+                switch self?.currentSession?.status {
                 case .completed:
-                    if let url = session.outputURL {
+                    if let url = self?.currentSession?.outputURL {
                         continuation.resume(returning: .success(url))
                     } else {
                         continuation.resume(returning: .failure(FileExportError()))
@@ -133,5 +134,23 @@ class VideoFilterViewModel: ObservableObject {
         }
     }
     
+    private var timer: Timer?
+    private var currentSession: AVAssetExportSession?
     
+    func startShowingProgressView() {
+        self.currentProgress = 0
+        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(timerUpdate), userInfo: nil, repeats: true)
+        
+    }
+    
+    func stopShowingProgressView() {
+        timer?.invalidate()
+        timer = nil
+        currentSession = nil
+        currentProgress = nil
+    }
+    
+    @objc private func timerUpdate() {
+        self.currentProgress = currentSession?.progress
+    }
 }
