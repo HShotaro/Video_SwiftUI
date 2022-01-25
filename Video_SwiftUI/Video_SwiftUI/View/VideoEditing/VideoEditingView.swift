@@ -14,9 +14,6 @@ struct VideoEditingView: View {
     @State var isPushActive = false
     @State var destinationView: AnyView? = nil
     
-    struct FileExportError: Error {}
-    struct FileDeleteError: Error {}
-    struct AVAssetExportSessionError: Error {}
     
     @State var url: URL
     let sourceType: VideoSelectionView.DisplayMode
@@ -32,13 +29,13 @@ struct VideoEditingView: View {
                 guard let newComposition = VideoEditingView.getNewComposition(asset: asset, startTime: currentVideoAssetStartPoint, endTime: currentVideoAssetEndpoint) else { return }
                 Task {
                     do {
-                        let url = try await VideoEditingView.write(composition: newComposition)
+                        let newUrl = try await newComposition.write()
                         if sourceType == .filming {
-                            try await removeOriginalURL()
+                            try await url.delete()
                         }
                         DispatchQueue.main.async {
-                            self.url = url
-                            self.destinationView = AnyView(VideoSaveView(url: url))
+                            self.url = newUrl
+                            self.destinationView = AnyView(VideoFilterView(url: url))
                             self.isPushActive = true
                         }
                     } catch {
@@ -60,48 +57,6 @@ struct VideoEditingView: View {
             return composition.copy() as? AVComposition
         } catch {
             return nil
-        }
-    }
-    
-    static func write(composition: AVComposition) async throws -> URL {
-        return try await withCheckedThrowingContinuation { continuation in
-            guard let session = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough) else {
-                continuation.resume(throwing: AVAssetExportSessionError())
-                return
-            }
-            session.outputURL = URL.exportURL()
-            session.outputFileType = .mp4
-            session.exportAsynchronously {
-                switch session.status {
-                case .completed:
-                    if let url = session.outputURL {
-                        continuation.resume(returning: url)
-                    } else {
-                        continuation.resume(throwing: FileExportError())
-                    }
-                case .failed:
-                    continuation.resume(throwing: session.error ?? FileExportError())
-                default:
-                    break
-                }
-            }
-        }
-    }
-    
-    func removeOriginalURL() async throws -> Void {
-        do {
-            return try await withCheckedThrowingContinuation { continuation in
-                do {
-                    if FileManager.default.fileExists(atPath: url.path) {
-                        try FileManager.default.removeItem(at: url)
-                        continuation.resume(returning: ())
-                    }
-                } catch {
-                    continuation.resume(throwing: FileDeleteError())
-                }
-            }
-        } catch {
-            throw error
         }
     }
 }
