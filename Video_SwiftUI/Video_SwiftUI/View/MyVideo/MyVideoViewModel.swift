@@ -31,7 +31,9 @@ class MyVideoViewModel: ObservableObject {
                         continuation.resume(throwing: URLNotFoundError() )
                         return
                     }
-                    try FileManager.default.removeItem(at: url)
+                    if FileManager.default.fileExists(atPath: url.path) {
+                        try FileManager.default.removeItem(at: url)
+                    }
                 }
                 try withAnimation {
                     selectedVideos.forEach(viewContext.delete)
@@ -40,8 +42,7 @@ class MyVideoViewModel: ObservableObject {
                 }
                 continuation.resume(returning: ())
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                print(error)
                 continuation.resume(throwing: error)
             }
         }
