@@ -54,7 +54,7 @@ struct CustomEffectView: View {
     
     private func addButtonTapped() {
         guard let url = viewModel.videoURL else { return }
-        self.destinationView = AnyView(MetalVideoView(url: url))
+        self.destinationView = AnyView(MetalView())
         self.isPushActive = true
     }
 }

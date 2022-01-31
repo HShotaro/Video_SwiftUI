@@ -56,10 +56,12 @@
 		CBB328F12786DD0F0094C2BB /* VideoUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328EE2786DD0F0094C2BB /* VideoUploadRepository.swift */; };
 		CBB328F42787BA7F0094C2BB /* VideoSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328F32787BA7F0094C2BB /* VideoSaveView.swift */; };
 		CBB328F62787BA910094C2BB /* VideoSaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */; };
-		CBC4165C27A77D2800A0C97A /* MetalVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4165B27A77D2800A0C97A /* MetalVideoView.swift */; };
+		CBC4165C27A77D2800A0C97A /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4165B27A77D2800A0C97A /* MetalView.swift */; };
 		CBC4165F27A77FE900A0C97A /* VSFloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4165E27A77FE900A0C97A /* VSFloatingButtonView.swift */; };
+		CBC4166127A7836400A0C97A /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4166027A7836400A0C97A /* MetalRenderer.swift */; };
 		CBC86E86278BD2E6007B011E /* Video+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */; };
 		CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */; };
+		CBE842CE27A8166400C9EB13 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = CBE842CD27A8166400C9EB13 /* Shader.metal */; };
 		CBE990B027A1398800834FA4 /* CustomEffectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */; };
 		CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */; };
 /* End PBXBuildFile section */
@@ -134,10 +136,14 @@
 		CBB328EE2786DD0F0094C2BB /* VideoUploadRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoUploadRepository.swift; sourceTree = "<group>"; };
 		CBB328F32787BA7F0094C2BB /* VideoSaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSaveView.swift; sourceTree = "<group>"; };
 		CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSaveViewModel.swift; sourceTree = "<group>"; };
-		CBC4165B27A77D2800A0C97A /* MetalVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalVideoView.swift; sourceTree = "<group>"; };
+		CBC4165B27A77D2800A0C97A /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		CBC4165E27A77FE900A0C97A /* VSFloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSFloatingButtonView.swift; sourceTree = "<group>"; };
+		CBC4166027A7836400A0C97A /* MetalRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalRenderer.swift; sourceTree = "<group>"; };
+		CBC4166227A7D61A00A0C97A /* Video_SwiftUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Video_SwiftUI-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBC4166327A7D6B200A0C97A /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CBE842CD27A8166400C9EB13 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEffectViewModel.swift; sourceTree = "<group>"; };
 		CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+convert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +220,7 @@
 				CBB328BD2786DB410094C2BB /* View */,
 				CBB328932786D85A0094C2BB /* Cartfile */,
 				CBB328922786D85A0094C2BB /* Cartfile.resolved */,
+				CBC4166227A7D61A00A0C97A /* Video_SwiftUI-Bridging-Header.h */,
 				CBB328632786D8420094C2BB /* Video_SwiftUIApp.swift */,
 				CBB328672786D8430094C2BB /* Assets.xcassets */,
 				CBB3286C2786D8430094C2BB /* Persistence.swift */,
@@ -335,8 +342,8 @@
 		CBB328B82786DB050094C2BB /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				CBB328BA2786DB180094C2BB /* CameraView.swift */,
 				CBB328B92786DB180094C2BB /* VSPHPickerViewController.swift */,
+				CBB328BA2786DB180094C2BB /* CameraView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -473,7 +480,10 @@
 		CBC4165A27A77CF200A0C97A /* Metal */ = {
 			isa = PBXGroup;
 			children = (
-				CBC4165B27A77D2800A0C97A /* MetalVideoView.swift */,
+				CBC4165B27A77D2800A0C97A /* MetalView.swift */,
+				CBC4166027A7836400A0C97A /* MetalRenderer.swift */,
+				CBC4166327A7D6B200A0C97A /* ShaderTypes.h */,
+				CBE842CD27A8166400C9EB13 /* Shader.metal */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -653,10 +663,11 @@
 				CBB328CA2786DC090094C2BB /* VSImageView.swift in Sources */,
 				CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */,
 				CBB328DF2786DCB80094C2BB /* VideoEditingView.swift in Sources */,
+				CBE842CE27A8166400C9EB13 /* Shader.metal in Sources */,
 				CB508CDD279FD07700AB4A7E /* url+delete.swift in Sources */,
 				CBB328BB2786DB180094C2BB /* VSPHPickerViewController.swift in Sources */,
 				CBB328662786D8420094C2BB /* ContentView.swift in Sources */,
-				CBC4165C27A77D2800A0C97A /* MetalVideoView.swift in Sources */,
+				CBC4165C27A77D2800A0C97A /* MetalView.swift in Sources */,
 				CBB328D42786DC520094C2BB /* MyVideoViewModel.swift in Sources */,
 				CBB328AD2786DA8A0094C2BB /* url+export.swift in Sources */,
 				CB508CDB279FC7C300AB4A7E /* AVComposition+write.swift in Sources */,
@@ -672,6 +683,7 @@
 				CBB328642786D8420094C2BB /* Video_SwiftUIApp.swift in Sources */,
 				CBB328B42786DAC30094C2BB /* WebSocketServer.swift in Sources */,
 				CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */,
+				CBC4166127A7836400A0C97A /* MetalRenderer.swift in Sources */,
 				CBB328CE2786DC280094C2BB /* HomeView.swift in Sources */,
 				CBB328F12786DD0F0094C2BB /* VideoUploadRepository.swift in Sources */,
 				CBC86E86278BD2E6007B011E /* Video+CoreDataClass.swift in Sources */,
@@ -864,6 +876,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = video_swiftui_dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Video_SwiftUI/Video_SwiftUI-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -898,6 +911,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = video_swiftui_prod;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Video_SwiftUI/Video_SwiftUI-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

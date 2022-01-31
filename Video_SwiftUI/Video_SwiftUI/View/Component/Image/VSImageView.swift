@@ -29,6 +29,6 @@ struct VSImageView: View {
 
 struct VSImageView_Previews: PreviewProvider {
     static var previews: some View {
-        VSImageView(imageURL: URL(string: ""))
+        VSImageView(imageURL: URL(string: "https://via.placeholder.com/150/0000FF/808080")!)
     }
 }
