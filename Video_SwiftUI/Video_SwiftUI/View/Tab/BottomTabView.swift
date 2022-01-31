@@ -26,10 +26,10 @@ struct BottomTabView: View {
             
             Button {
                 isVideoFilingPresented = false
-                selection = .timeline
+                selection = .customEffect
             } label: {
                 VStack {
-                    BottomTabItemView(image: Image(systemName: "clock"), text: ContentView.Tab.timeline.rawValue, tab: .timeline, selected: $selection
+                    BottomTabItemView(image: Image(systemName: "clock"), text: ContentView.Tab.customEffect.rawValue, tab: .customEffect, selected: $selection
                     ).frame(width: itemWidth())
                 }
             }

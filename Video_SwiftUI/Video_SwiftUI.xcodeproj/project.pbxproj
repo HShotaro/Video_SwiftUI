@@ -43,12 +43,11 @@
 		CBB328D42786DC520094C2BB /* MyVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D22786DC520094C2BB /* MyVideoViewModel.swift */; };
 		CBB328D72786DC700094C2BB /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D52786DC700094C2BB /* BottomTabItemView.swift */; };
 		CBB328D82786DC700094C2BB /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D62786DC700094C2BB /* BottomTabView.swift */; };
-		CBB328DA2786DC880094C2BB /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D92786DC880094C2BB /* TimelineView.swift */; };
+		CBB328DA2786DC880094C2BB /* CustomEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D92786DC880094C2BB /* CustomEffectView.swift */; };
 		CBB328DE2786DCB80094C2BB /* VideoEditingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328DC2786DCB80094C2BB /* VideoEditingViewRepresentable.swift */; };
 		CBB328DF2786DCB80094C2BB /* VideoEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328DD2786DCB80094C2BB /* VideoEditingView.swift */; };
 		CBB328E22786DCC30094C2BB /* VideoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328E02786DCC30094C2BB /* VideoEditingViewController.swift */; };
 		CBB328E32786DCC30094C2BB /* TrimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328E12786DCC30094C2BB /* TrimingView.swift */; };
-		CBB328E52786DCDC0094C2BB /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328E42786DCDC0094C2BB /* VideoPlayerView.swift */; };
 		CBB328E92786DCFB0094C2BB /* VideoSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328E62786DCFB0094C2BB /* VideoSelectionViewModel.swift */; };
 		CBB328EA2786DCFB0094C2BB /* VideoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328E72786DCFB0094C2BB /* VideoSelectionView.swift */; };
 		CBB328EB2786DCFB0094C2BB /* VideoSelectionEnvironmentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328E82786DCFB0094C2BB /* VideoSelectionEnvironmentObject.swift */; };
@@ -57,8 +56,11 @@
 		CBB328F12786DD0F0094C2BB /* VideoUploadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328EE2786DD0F0094C2BB /* VideoUploadRepository.swift */; };
 		CBB328F42787BA7F0094C2BB /* VideoSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328F32787BA7F0094C2BB /* VideoSaveView.swift */; };
 		CBB328F62787BA910094C2BB /* VideoSaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */; };
+		CBC4165C27A77D2800A0C97A /* MetalVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4165B27A77D2800A0C97A /* MetalVideoView.swift */; };
+		CBC4165F27A77FE900A0C97A /* VSFloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4165E27A77FE900A0C97A /* VSFloatingButtonView.swift */; };
 		CBC86E86278BD2E6007B011E /* Video+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */; };
 		CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */; };
+		CBE990B027A1398800834FA4 /* CustomEffectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */; };
 		CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,12 +121,11 @@
 		CBB328D22786DC520094C2BB /* MyVideoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoViewModel.swift; sourceTree = "<group>"; };
 		CBB328D52786DC700094C2BB /* BottomTabItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
 		CBB328D62786DC700094C2BB /* BottomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
-		CBB328D92786DC880094C2BB /* TimelineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		CBB328D92786DC880094C2BB /* CustomEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEffectView.swift; sourceTree = "<group>"; };
 		CBB328DC2786DCB80094C2BB /* VideoEditingViewRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditingViewRepresentable.swift; sourceTree = "<group>"; };
 		CBB328DD2786DCB80094C2BB /* VideoEditingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditingView.swift; sourceTree = "<group>"; };
 		CBB328E02786DCC30094C2BB /* VideoEditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditingViewController.swift; sourceTree = "<group>"; };
 		CBB328E12786DCC30094C2BB /* TrimingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimingView.swift; sourceTree = "<group>"; };
-		CBB328E42786DCDC0094C2BB /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		CBB328E62786DCFB0094C2BB /* VideoSelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionViewModel.swift; sourceTree = "<group>"; };
 		CBB328E72786DCFB0094C2BB /* VideoSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionView.swift; sourceTree = "<group>"; };
 		CBB328E82786DCFB0094C2BB /* VideoSelectionEnvironmentObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectionEnvironmentObject.swift; sourceTree = "<group>"; };
@@ -133,8 +134,11 @@
 		CBB328EE2786DD0F0094C2BB /* VideoUploadRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoUploadRepository.swift; sourceTree = "<group>"; };
 		CBB328F32787BA7F0094C2BB /* VideoSaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSaveView.swift; sourceTree = "<group>"; };
 		CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSaveViewModel.swift; sourceTree = "<group>"; };
+		CBC4165B27A77D2800A0C97A /* MetalVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalVideoView.swift; sourceTree = "<group>"; };
+		CBC4165E27A77FE900A0C97A /* VSFloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSFloatingButtonView.swift; sourceTree = "<group>"; };
 		CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEffectViewModel.swift; sourceTree = "<group>"; };
 		CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+convert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,12 +348,12 @@
 				CBB328C72786DBCE0094C2BB /* Chat */,
 				CBB328C62786DBC50094C2BB /* Component */,
 				CBB328C52786DBBC0094C2BB /* Home */,
+				CBC4165A27A77CF200A0C97A /* Metal */,
 				CBB328C42786DBB00094C2BB /* MyVideo */,
 				CBB328C32786DBA70094C2BB /* Tab */,
-				CBB328C22786DB9D0094C2BB /* Timeline */,
+				CBB328C22786DB9D0094C2BB /* CustomEffect */,
 				CBB328C12786DB940094C2BB /* VideoEditing */,
 				CB508CD4279A9C0600AB4A7E /* VideoFilter */,
-				CBB328C02786DB8B0094C2BB /* VideoPlayer */,
 				CBB328F22787BA410094C2BB /* VideoSave */,
 				CBB328BF2786DB820094C2BB /* VideoSelection */,
 				CBB328BE2786DB730094C2BB /* VideoUpload */,
@@ -377,14 +381,6 @@
 			path = VideoSelection;
 			sourceTree = "<group>";
 		};
-		CBB328C02786DB8B0094C2BB /* VideoPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				CBB328E42786DCDC0094C2BB /* VideoPlayerView.swift */,
-			);
-			path = VideoPlayer;
-			sourceTree = "<group>";
-		};
 		CBB328C12786DB940094C2BB /* VideoEditing */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,12 +391,13 @@
 			path = VideoEditing;
 			sourceTree = "<group>";
 		};
-		CBB328C22786DB9D0094C2BB /* Timeline */ = {
+		CBB328C22786DB9D0094C2BB /* CustomEffect */ = {
 			isa = PBXGroup;
 			children = (
-				CBB328D92786DC880094C2BB /* TimelineView.swift */,
+				CBB328D92786DC880094C2BB /* CustomEffectView.swift */,
+				CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */,
 			);
-			path = Timeline;
+			path = CustomEffect;
 			sourceTree = "<group>";
 		};
 		CBB328C32786DBA70094C2BB /* Tab */ = {
@@ -433,6 +430,7 @@
 		CBB328C62786DBC50094C2BB /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				CBC4165D27A77FD600A0C97A /* Button */,
 				CBB328C82786DBF50094C2BB /* Image */,
 			);
 			path = Component;
@@ -470,6 +468,22 @@
 				CBB328F52787BA910094C2BB /* VideoSaveViewModel.swift */,
 			);
 			path = VideoSave;
+			sourceTree = "<group>";
+		};
+		CBC4165A27A77CF200A0C97A /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				CBC4165B27A77D2800A0C97A /* MetalVideoView.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		CBC4165D27A77FD600A0C97A /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CBC4165E27A77FE900A0C97A /* VSFloatingButtonView.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		CBC86E83278BD2AF007B011E /* CoreData */ = {
@@ -626,10 +640,12 @@
 				CB508CD8279AA2E900AB4A7E /* VideoFilterViewModel.swift in Sources */,
 				CBB328B32786DAC30094C2BB /* WebSocketClient.swift in Sources */,
 				CBB328D72786DC700094C2BB /* BottomTabItemView.swift in Sources */,
+				CBE990B027A1398800834FA4 /* CustomEffectViewModel.swift in Sources */,
 				CBB328F42787BA7F0094C2BB /* VideoSaveView.swift in Sources */,
 				CBB328F02786DD0F0094C2BB /* VideoUploadViewModel.swift in Sources */,
 				CBB328D32786DC520094C2BB /* MyVideoView.swift in Sources */,
 				CBB328CD2786DC270094C2BB /* HomeViewModel.swift in Sources */,
+				CBC4165F27A77FE900A0C97A /* VSFloatingButtonView.swift in Sources */,
 				CBB328E32786DCC30094C2BB /* TrimingView.swift in Sources */,
 				CBB328EB2786DCFB0094C2BB /* VideoSelectionEnvironmentObject.swift in Sources */,
 				CBB328D02786DC360094C2BB /* ChatView.swift in Sources */,
@@ -640,10 +656,10 @@
 				CB508CDD279FD07700AB4A7E /* url+delete.swift in Sources */,
 				CBB328BB2786DB180094C2BB /* VSPHPickerViewController.swift in Sources */,
 				CBB328662786D8420094C2BB /* ContentView.swift in Sources */,
+				CBC4165C27A77D2800A0C97A /* MetalVideoView.swift in Sources */,
 				CBB328D42786DC520094C2BB /* MyVideoViewModel.swift in Sources */,
 				CBB328AD2786DA8A0094C2BB /* url+export.swift in Sources */,
 				CB508CDB279FC7C300AB4A7E /* AVComposition+write.swift in Sources */,
-				CBB328E52786DCDC0094C2BB /* VideoPlayerView.swift in Sources */,
 				CBB328A02786DA530094C2BB /* UIColor+colorImage.swift in Sources */,
 				CBB328A32786DA5F0094C2BB /* NSMutableData+append.swift in Sources */,
 				CBB328E22786DCC30094C2BB /* VideoEditingViewController.swift in Sources */,
@@ -665,7 +681,7 @@
 				CBB328D82786DC700094C2BB /* BottomTabView.swift in Sources */,
 				CBB328AB2786DA7B0094C2BB /* UIApplilcation+safeArea.swift.swift in Sources */,
 				CBB328F62787BA910094C2BB /* VideoSaveViewModel.swift in Sources */,
-				CBB328DA2786DC880094C2BB /* TimelineView.swift in Sources */,
+				CBB328DA2786DC880094C2BB /* CustomEffectView.swift in Sources */,
 				CBB328A82786DA6F0094C2BB /* UIImage+resize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

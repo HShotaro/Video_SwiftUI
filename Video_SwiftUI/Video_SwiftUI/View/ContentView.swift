@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
     enum Tab: String, CaseIterable {
         case home = "ホーム"
-        case timeline = "タイムライン"
+        case customEffect = "エフェクト"
         case chat = "チャット"
         case myvideo = "マイビデオ"
     }
@@ -23,8 +22,8 @@ struct ContentView: View {
             switch selection {
             case .home:
                 HomeView()
-            case .timeline:
-                TimelineView()
+            case .customEffect:
+                CustomEffectView()
             case .chat:
                 ChatView()
             case .myvideo:
