@@ -1,10 +1,10 @@
 //
+
 //  MetalVideoView.swift
 //  Video_SwiftUI
 //
 //  Created by Shotaro Hirano on 2022/01/31.
 //
-
 import SwiftUI
 import MetalKit
 
