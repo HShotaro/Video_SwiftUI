@@ -10,30 +10,20 @@ import AVKit
 
 struct CustomEffectView: View {
     @StateObject var viewModel = CustomEffectViewModel()
-    @State var destinationView: AnyView? = nil
-    @State var isPushActive = false
     
-    private var avPlayer: AVPlayer? {
+    private var customEffectViewRepresentable: VSCustomEffectViewRepresentable? {
         guard let videoURL = viewModel.videoURL else { return nil }
         let asset = AVURLAsset(url: videoURL)
         let playerItem = AVPlayerItem(asset: asset)
         playerItem.videoComposition = viewModel.videoComposition
-        return AVPlayer(playerItem: playerItem)
+        let viewRepresentable = VSCustomEffectViewRepresentable(playerItem: playerItem)
+        return viewRepresentable
     }
     
     var body: some View {
         NavigationView {
-            Group {
-                NavigationLink(isActive: $isPushActive) {
-                    destinationView
-                } label: {
-                    EmptyView()
-                }
-                ZStack {
-                    VideoPlayer(player: avPlayer)
-                    VSFloatingButtonView(tappedHandler: addButtonTapped)
-                }
-            }.padding(.bottom, BottomTabView.height)
+            customEffectViewRepresentable
+                .padding(.bottom, BottomTabView.height)
                 .navigationTitle(ContentView.Tab.customEffect.rawValue)
                 .navigationBarItems(trailing:
                                         Button(action: {
@@ -50,12 +40,6 @@ struct CustomEffectView: View {
                     }
                 })
         }.navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    private func addButtonTapped() {
-        guard let url = viewModel.videoURL else { return }
-        self.destinationView = AnyView(VSSpriteKitView(url: url))
-        self.isPushActive = true
     }
 }
 
