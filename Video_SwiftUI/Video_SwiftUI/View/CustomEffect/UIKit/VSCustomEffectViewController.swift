@@ -24,7 +24,7 @@ class VSCustomEffectViewController: UIViewController {
         playerLayer = AVPlayerLayer(player: avplayer)
         skView = SKView(frame: .zero)
         skView.allowsTransparency = true
-        scene = ChocolateScene()
+        scene = PetalScene()
         scene.backgroundColor = .clear
         scene.scaleMode = .fill
         super.init(nibName: nil, bundle: nil)

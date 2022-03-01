@@ -29,12 +29,16 @@ class PetalScene: SKScene {
     
     private func rotate(nodeName: String) {
         guard let petalNode = self.childNode(withName: nodeName) as? SKSpriteNode else { return }
-        let action1 = SKAction.rotate(byAngle: CGFloat(Double.pi * 4), duration: 1.0)
-        let action2 = SKAction.wait(forDuration: 2)
+        let bigAction = SKAction.scale(by: 2.0, duration: 0.1)
+        bigAction.timingMode = .easeIn
+        let smallAction = SKAction.scale(by: 0.5, duration: 0.12)
+        smallAction.timingMode = .easeOut
+        let rotateAction = SKAction.rotate(byAngle: CGFloat(Double.pi * 4), duration: 1.0)
         //一定速度で回転する。
-        action2.timingMode = SKActionTimingMode.linear
-        let action3 = SKAction.removeFromParent()
-        let actionAll = SKAction.sequence([action1, action2, action3])
+        rotateAction.timingMode = SKActionTimingMode.linear
+        let waitingAction = SKAction.wait(forDuration: 2)
+        let removeAction = SKAction.removeFromParent()
+        let actionAll = SKAction.sequence([bigAction, smallAction, rotateAction, waitingAction, removeAction])
         petalNode.run(actionAll)
     }
 }
