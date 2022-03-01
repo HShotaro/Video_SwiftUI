@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class VSVideoScene: SKScene {
+class PetalScene: SKScene {
     
     override func didMove(to view: SKView) {
 //        物体が落下した時に下に積もるようにしたい時に使う

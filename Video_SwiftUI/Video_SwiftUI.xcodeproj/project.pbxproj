@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB2BEBAC27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBAB27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift */; };
 		CB2BEBAE27C7491C0091EF7F /* VSCustomEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBAD27C7491C0091EF7F /* VSCustomEffectViewController.swift */; };
-		CB2BEBB427C76BEC0091EF7F /* VSVideoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBB327C76BEC0091EF7F /* VSVideoScene.swift */; };
+		CB2BEBB427C76BEC0091EF7F /* PetalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */; };
 		CB508CD6279A9C2600AB4A7E /* VideoFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB508CD5279A9C2600AB4A7E /* VideoFilterView.swift */; };
 		CB508CD8279AA2E900AB4A7E /* VideoFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB508CD7279AA2E900AB4A7E /* VideoFilterViewModel.swift */; };
 		CB508CDB279FC7C300AB4A7E /* AVComposition+write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB508CDA279FC7C300AB4A7E /* AVComposition+write.swift */; };
@@ -89,7 +89,7 @@
 /* Begin PBXFileReference section */
 		CB2BEBAB27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSCustomEffectViewRepresentable.swift; sourceTree = "<group>"; };
 		CB2BEBAD27C7491C0091EF7F /* VSCustomEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSCustomEffectViewController.swift; sourceTree = "<group>"; };
-		CB2BEBB327C76BEC0091EF7F /* VSVideoScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSVideoScene.swift; sourceTree = "<group>"; };
+		CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetalScene.swift; sourceTree = "<group>"; };
 		CB508CD5279A9C2600AB4A7E /* VideoFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilterView.swift; sourceTree = "<group>"; };
 		CB508CD7279AA2E900AB4A7E /* VideoFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilterViewModel.swift; sourceTree = "<group>"; };
 		CB508CDA279FC7C300AB4A7E /* AVComposition+write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVComposition+write.swift"; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		CB2BEBB627C77C3D0091EF7F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				CB2BEBB327C76BEC0091EF7F /* VSVideoScene.swift */,
+				CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -691,7 +691,7 @@
 				CBB328CD2786DC270094C2BB /* HomeViewModel.swift in Sources */,
 				CBC4165F27A77FE900A0C97A /* VSFloatingButtonView.swift in Sources */,
 				CBB328E32786DCC30094C2BB /* TrimingView.swift in Sources */,
-				CB2BEBB427C76BEC0091EF7F /* VSVideoScene.swift in Sources */,
+				CB2BEBB427C76BEC0091EF7F /* PetalScene.swift in Sources */,
 				CBB328EB2786DCFB0094C2BB /* VideoSelectionEnvironmentObject.swift in Sources */,
 				CBB328D02786DC360094C2BB /* ChatView.swift in Sources */,
 				CBB328BC2786DB180094C2BB /* CameraView.swift in Sources */,
