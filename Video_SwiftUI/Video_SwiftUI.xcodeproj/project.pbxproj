@@ -64,6 +64,7 @@
 		CBC4166127A7836400A0C97A /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC4166027A7836400A0C97A /* MetalRenderer.swift */; };
 		CBC86E86278BD2E6007B011E /* Video+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */; };
 		CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */; };
+		CBCDA43E27CDACF1004CB938 /* ChocolateScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCDA43D27CDACF1004CB938 /* ChocolateScene.swift */; };
 		CBE842CE27A8166400C9EB13 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = CBE842CD27A8166400C9EB13 /* Shader.metal */; };
 		CBE990B027A1398800834FA4 /* CustomEffectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */; };
 		CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */; };
@@ -149,6 +150,7 @@
 		CBC4166327A7D6B200A0C97A /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		CBC86E84278BD2E6007B011E /* Video+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CBC86E85278BD2E6007B011E /* Video+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Video+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CBCDA43D27CDACF1004CB938 /* ChocolateScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateScene.swift; sourceTree = "<group>"; };
 		CBE842CD27A8166400C9EB13 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		CBE990AF27A1398800834FA4 /* CustomEffectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEffectViewModel.swift; sourceTree = "<group>"; };
 		CBF9AFF42793C4B6002A35C6 /* PHAsset+convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+convert.swift"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */,
+				CBCDA43D27CDACF1004CB938 /* ChocolateScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				CBB328DE2786DCB80094C2BB /* VideoEditingViewRepresentable.swift in Sources */,
 				CBB328642786D8420094C2BB /* Video_SwiftUIApp.swift in Sources */,
 				CBB328B42786DAC30094C2BB /* WebSocketServer.swift in Sources */,
+				CBCDA43E27CDACF1004CB938 /* ChocolateScene.swift in Sources */,
 				CBC86E87278BD2E6007B011E /* Video+CoreDataProperties.swift in Sources */,
 				CBC4166127A7836400A0C97A /* MetalRenderer.swift in Sources */,
 				CBB328CE2786DC280094C2BB /* HomeView.swift in Sources */,
