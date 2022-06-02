@@ -181,13 +181,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB2BEBA827C747090091EF7F /* SpriteKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SpriteKit;
-			sourceTree = "<group>";
-		};
 		CB2BEBB527C7711A0091EF7F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,7 +384,6 @@
 				CBC4165A27A77CF200A0C97A /* Metal */,
 				CBB328C42786DBB00094C2BB /* MyVideo */,
 				CBB328C32786DBA70094C2BB /* Tab */,
-				CB2BEBA827C747090091EF7F /* SpriteKit */,
 				CBB328C22786DB9D0094C2BB /* CustomEffect */,
 				CBB328C12786DB940094C2BB /* VideoEditing */,
 				CB508CD4279A9C0600AB4A7E /* VideoFilter */,

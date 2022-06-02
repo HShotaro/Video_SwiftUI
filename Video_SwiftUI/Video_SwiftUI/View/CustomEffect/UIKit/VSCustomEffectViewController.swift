@@ -72,7 +72,7 @@ class VSCustomEffectViewController: UIViewController {
             case .readyToPlay:
                 playerLayer.player?.play()
             case .failed:
-                break
+                print(playerLayer.player?.currentItem?.error?.localizedDescription ?? "")
             case .unknown:
                 break
             @unknown default:

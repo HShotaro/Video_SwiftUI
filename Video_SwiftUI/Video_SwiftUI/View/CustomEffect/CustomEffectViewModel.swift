@@ -15,17 +15,24 @@ class CustomEffectViewModel: ObservableObject {
     @Published var videoComposition: AVVideoComposition?
     
     func getPHPickerResult(_ result: PHPickerResult) {
-        result.itemProvider.loadItem(forTypeIdentifier: UTType.movie.identifier, options: nil) { [weak self] fileURL, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-
-            guard let url = fileURL as? URL else { return }
-            print(url.absoluteString)
-            DispatchQueue.main.async { [weak self] in
-                self?.videoURL = url
+        let itemProvider = result.itemProvider
+        if itemProvider.hasItemConformingToTypeIdentifier(UTType.movie.identifier) {
+            itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.movie.identifier) { [weak self] url, error in
+                do {
+                    guard let url = url, error == nil else {
+                        throw error ?? NSError(domain: NSFileProviderErrorDomain, code: -1)
+                    }
+                    let localURL = FileManager.default.temporaryDirectory.appendingPathComponent(url.lastPathComponent)
+                    try? FileManager.default.removeItem(at: localURL)
+                    try FileManager.default.copyItem(at: url, to: localURL)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.videoURL = localURL
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
+        
     }
-
 }
