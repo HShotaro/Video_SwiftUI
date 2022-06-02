@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SceneKit
 
 struct _360DegreeView: View {
+    let scene = _360DegreeScene()
     var body: some View {
         NavigationView {
-            Text("Message List")
+            SceneView(scene: scene)
+                .gesture(DragGesture().onChanged(scene.drag(value:)))
                 .padding(.bottom, BottomTabView.height)
                 .navigationTitle(ContentView.Tab._360Degree.rawValue)
         }.navigationViewStyle(StackNavigationViewStyle())

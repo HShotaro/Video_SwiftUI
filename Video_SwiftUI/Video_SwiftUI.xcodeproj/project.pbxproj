@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		961BB9662848B997001BD647 /* test360.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 961BB9652848B997001BD647 /* test360.mp4 */; };
+		961BB96A2848BE14001BD647 /* _360DegreeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BB9692848BE14001BD647 /* _360DegreeScene.swift */; };
 		CB2BEBAC27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBAB27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift */; };
 		CB2BEBAE27C7491C0091EF7F /* VSCustomEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBAD27C7491C0091EF7F /* VSCustomEffectViewController.swift */; };
 		CB2BEBB427C76BEC0091EF7F /* PetalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		961BB9652848B997001BD647 /* test360.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test360.mp4; sourceTree = "<group>"; };
+		961BB9692848BE14001BD647 /* _360DegreeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _360DegreeScene.swift; sourceTree = "<group>"; };
 		CB2BEBAB27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSCustomEffectViewRepresentable.swift; sourceTree = "<group>"; };
 		CB2BEBAD27C7491C0091EF7F /* VSCustomEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSCustomEffectViewController.swift; sourceTree = "<group>"; };
 		CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetalScene.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB328CF2786DC360094C2BB /* _360DegreeView.swift */,
+				961BB9692848BE14001BD647 /* _360DegreeScene.swift */,
 			);
 			path = _360Degree;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				CBB328F02786DD0F0094C2BB /* VideoUploadViewModel.swift in Sources */,
 				CBB328D32786DC520094C2BB /* MyVideoView.swift in Sources */,
 				CBB328CD2786DC270094C2BB /* HomeViewModel.swift in Sources */,
+				961BB96A2848BE14001BD647 /* _360DegreeScene.swift in Sources */,
 				CBC4165F27A77FE900A0C97A /* VSFloatingButtonView.swift in Sources */,
 				CBB328E32786DCC30094C2BB /* TrimingView.swift in Sources */,
 				CB2BEBB427C76BEC0091EF7F /* PetalScene.swift in Sources */,
