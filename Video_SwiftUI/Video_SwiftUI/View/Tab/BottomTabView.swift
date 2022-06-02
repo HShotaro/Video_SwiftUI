@@ -47,10 +47,10 @@ struct BottomTabView: View {
             
             Button {
                 isVideoFilingPresented = false
-                selection = .chat
+                selection = ._360Degree
             } label: {
                 VStack {
-                    BottomTabItemView(image: Image(systemName: "text.bubble"), text: ContentView.Tab.chat.rawValue, tab: .chat, selected: $selection
+                    BottomTabItemView(image: Image(systemName: "text.bubble"), text: ContentView.Tab._360Degree.rawValue, tab: ._360Degree, selected: $selection
                     ).frame(width: itemWidth())
                 }
             }

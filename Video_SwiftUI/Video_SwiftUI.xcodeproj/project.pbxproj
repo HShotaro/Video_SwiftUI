@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961BB9662848B997001BD647 /* test360.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 961BB9652848B997001BD647 /* test360.mp4 */; };
 		CB2BEBAC27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBAB27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift */; };
 		CB2BEBAE27C7491C0091EF7F /* VSCustomEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBAD27C7491C0091EF7F /* VSCustomEffectViewController.swift */; };
 		CB2BEBB427C76BEC0091EF7F /* PetalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */; };
@@ -41,7 +42,7 @@
 		CBB328CA2786DC090094C2BB /* VSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328C92786DC090094C2BB /* VSImageView.swift */; };
 		CBB328CD2786DC270094C2BB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328CB2786DC270094C2BB /* HomeViewModel.swift */; };
 		CBB328CE2786DC280094C2BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328CC2786DC270094C2BB /* HomeView.swift */; };
-		CBB328D02786DC360094C2BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328CF2786DC360094C2BB /* ChatView.swift */; };
+		CBB328D02786DC360094C2BB /* _360DegreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328CF2786DC360094C2BB /* _360DegreeView.swift */; };
 		CBB328D32786DC520094C2BB /* MyVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D12786DC520094C2BB /* MyVideoView.swift */; };
 		CBB328D42786DC520094C2BB /* MyVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D22786DC520094C2BB /* MyVideoViewModel.swift */; };
 		CBB328D72786DC700094C2BB /* BottomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB328D52786DC700094C2BB /* BottomTabItemView.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		961BB9652848B997001BD647 /* test360.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test360.mp4; sourceTree = "<group>"; };
 		CB2BEBAB27C747F40091EF7F /* VSCustomEffectViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSCustomEffectViewRepresentable.swift; sourceTree = "<group>"; };
 		CB2BEBAD27C7491C0091EF7F /* VSCustomEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSCustomEffectViewController.swift; sourceTree = "<group>"; };
 		CB2BEBB327C76BEC0091EF7F /* PetalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetalScene.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		CBB328C92786DC090094C2BB /* VSImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSImageView.swift; sourceTree = "<group>"; };
 		CBB328CB2786DC270094C2BB /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CBB328CC2786DC270094C2BB /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		CBB328CF2786DC360094C2BB /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		CBB328CF2786DC360094C2BB /* _360DegreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _360DegreeView.swift; sourceTree = "<group>"; };
 		CBB328D12786DC520094C2BB /* MyVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoView.swift; sourceTree = "<group>"; };
 		CBB328D22786DC520094C2BB /* MyVideoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoViewModel.swift; sourceTree = "<group>"; };
 		CBB328D52786DC700094C2BB /* BottomTabItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTabItemView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		961BB9622848B90B001BD647 /* MP4 */ = {
+			isa = PBXGroup;
+			children = (
+				961BB9652848B997001BD647 /* test360.mp4 */,
+			);
+			path = MP4;
+			sourceTree = "<group>";
+		};
 		CB2BEBB527C7711A0091EF7F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +249,7 @@
 		CBB328622786D8420094C2BB /* Video_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				961BB9622848B90B001BD647 /* MP4 */,
 				CBB328B82786DB050094C2BB /* UIKit */,
 				CBB328AE2786DAA00094C2BB /* Manager */,
 				CBB328972786D9CA0094C2BB /* Extension */,
@@ -378,7 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB328652786D8420094C2BB /* ContentView.swift */,
-				CBB328C72786DBCE0094C2BB /* Chat */,
+				CBB328C72786DBCE0094C2BB /* _360Degree */,
 				CBB328C62786DBC50094C2BB /* Component */,
 				CBB328C52786DBBC0094C2BB /* Home */,
 				CBC4165A27A77CF200A0C97A /* Metal */,
@@ -471,12 +482,12 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		CBB328C72786DBCE0094C2BB /* Chat */ = {
+		CBB328C72786DBCE0094C2BB /* _360Degree */ = {
 			isa = PBXGroup;
 			children = (
-				CBB328CF2786DC360094C2BB /* ChatView.swift */,
+				CBB328CF2786DC360094C2BB /* _360DegreeView.swift */,
 			);
-			path = Chat;
+			path = _360Degree;
 			sourceTree = "<group>";
 		};
 		CBB328C82786DBF50094C2BB /* Image */ = {
@@ -647,6 +658,7 @@
 			files = (
 				CBB3286B2786D8430094C2BB /* Preview Assets.xcassets in Resources */,
 				CBB328942786D85A0094C2BB /* Cartfile.resolved in Resources */,
+				961BB9662848B997001BD647 /* test360.mp4 in Resources */,
 				CBB328952786D85A0094C2BB /* Cartfile in Resources */,
 				CBB328682786D8430094C2BB /* Assets.xcassets in Resources */,
 			);
@@ -688,7 +700,7 @@
 				CBB328E32786DCC30094C2BB /* TrimingView.swift in Sources */,
 				CB2BEBB427C76BEC0091EF7F /* PetalScene.swift in Sources */,
 				CBB328EB2786DCFB0094C2BB /* VideoSelectionEnvironmentObject.swift in Sources */,
-				CBB328D02786DC360094C2BB /* ChatView.swift in Sources */,
+				CBB328D02786DC360094C2BB /* _360DegreeView.swift in Sources */,
 				CBB328BC2786DB180094C2BB /* CameraView.swift in Sources */,
 				CBB328CA2786DC090094C2BB /* VSImageView.swift in Sources */,
 				CBF9AFF52793C4B6002A35C6 /* PHAsset+convert.swift in Sources */,

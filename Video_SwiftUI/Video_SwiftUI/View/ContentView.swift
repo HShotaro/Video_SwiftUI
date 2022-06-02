@@ -11,7 +11,7 @@ struct ContentView: View {
     enum Tab: String, CaseIterable {
         case home = "ホーム"
         case customEffect = "エフェクト"
-        case chat = "チャット"
+        case _360Degree = "360度動画"
         case myvideo = "マイビデオ"
     }
     @State private var selection: Tab = .home
@@ -24,8 +24,8 @@ struct ContentView: View {
                 HomeView()
             case .customEffect:
                 CustomEffectView()
-            case .chat:
-                ChatView()
+            case ._360Degree:
+                _360DegreeView()
             case .myvideo:
                 MyVideoView()
             }
